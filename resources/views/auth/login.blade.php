@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +70,122 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8" name="viewport" scale="0.1">
+        <title>Pro Worker | Bring Profesional Worker Cross Nations</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+    <body class="blue darken-2">
+        <div class="container">
+            <div class="row mt-4 d-flex justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card rounded-0 shadow mb-4">
+                        <div class="card-body">
+                            <div class="row mt-4 d-flex justify-content-center">
+                                <h4>Log <span class="text-primary">In</span></h4>
+                            </div>
+                            <div class="row mt-5 d-flex justify-content-center">
+                                <img src="{{ asset('img/logo.png') }}" class="logo-login">
+                            </div>
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <div class="row mt-4 d-flex justify-content-center">
+                                    <div class="col-lg-10">
+                                        <div class="md-form input-with-post-icon">
+                                            <i class="fas fa-at input-prefix"></i>
+                                            <label for="email">{{ __('E-Mail Address') }}</label>
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        </div>
+                                    </div>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+        
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-10">
+                                        <div class="md-form input-with-post-icon">
+                                            <i class="fas fa-lock input-prefix"></i>
+                                            <label for="password">{{ __('Password') }}</label>
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        </div>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+        
+                                <div class="row mt-2">
+                                    <div class="col-lg-10 d-flex justify-content-between offset-lg-1">
+                                        @if (Route::has('password.request'))
+                                            <a href="{{ route('password.request') }}">
+                                            <small>{{ __('Forgot Your Password?') }}</small>
+                                            </a>
+                                        @endif
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+        
+                                            <small class="form-check-label" for="remember">
+                                                {{ __('Remember Me') }}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row d-flex justify-content-center mt-4">
+                                    <div class="col-lg-10">
+                                        <button type="submit" class="btn btn-primary btn-block">
+                                            {{ __('Login') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row mt-4 d-flex justify-content-center">
+                                <a href="/register">
+                                   <small> Don't have an account? Sign Up</small>
+                                </a>
+                            </div>
+                            <div class="row mt-4 d-flex justify-content-center">
+                                <div class="col-lg-10">
+                                    <button type="button" class="btn btn-danger btn-block">Sign In with Google</button>
+                                </div>
+                            </div>
+                            <div class="row mt-2 d-flex justify-content-center">
+                                <div class="col-lg-10">
+                                    <button type="button" class="btn blue darken-2 btn-block text-white">Sign In With Facebook</button>
+                                </div>
+                            </div>
+                            <div class="row mt-4 d-flex justify-content-center">
+                                <small class="text-muted">2020 &copy; Proworker | All rights reserved</small> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    </body>
+</html>
+
