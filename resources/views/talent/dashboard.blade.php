@@ -1,9 +1,7 @@
 @extends('talent.layouts.app')
 @section('content')
-<div class="row mt-5">
+<div class="row">
     <div class="col-lg-12">
-        <div class="card rounded-0 border-0 shadow">
-            <div class="card-body">
                 <div class="row d-flex justify-content-center">
                     <img src="{{ asset('img/registration.png') }}" class="dashboard-img">
                 </div>
@@ -21,8 +19,6 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
     </div>
 </div>
 <div class="row">

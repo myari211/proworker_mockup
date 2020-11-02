@@ -15,48 +15,55 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     </head>
     <body>	
-          <div class="d-flex" id="wrapper">
+        <div class="d-flex" id="wrapper">
+
             <!-- Sidebar -->
             <div class="bg-primary border-0 shadow" id="sidebar-wrapper">
-              <div class="sidebar-heading">
-                <img src="{{ asset('img/logo.png') }}" class="heading">
-              </div>
-              <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
-                  Your Profile
-                  <i class="fas fa-user"></i>
-                </a>
-              </div>
+                <div class="sidebar-heading">
+                    <img src="{{ asset('img/logo.png') }}" class="heading">
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        Bank Data
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="/admin/job-roles" class="pl-5 list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        Job Roles
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                </div>
             </div>
             <!-- /#sidebar-wrapper -->
         
             <!-- Page Content -->
             <div id="page-content-wrapper">
-              <div class="navbar navbar-dark primary-color">
+                <div class="navbar navbar-dark primary-color">
                     
-                <div>
-                    <button class="btn btn-lg pb-2 pt-2 pr-3 pl-3 blue darken-3 shadow-0 text-white" id="menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                        <div>
+                            <button class="btn btn-lg pb-2 pt-2 pr-3 pl-3 blue darken-3 shadow-0 text-white" id="menu-toggle">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
+                                <i class="fas fa-comments"></i>
+                            </button>
+                            <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
+                                <i class="fas fa-bell"></i>
+                            </button>
+                            <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 rounded-0 shadow-0" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-user"></i>
+                            </button>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                 </div>
-                <div>
-                    <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
-                        <i class="fas fa-comments"></i>
-                    </button>
-                    <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
-                        <i class="fas fa-bell"></i>
-                    </button>
-                    <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 rounded-0 shadow-0" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fas fa-user"></i>
-                    </button>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-              </div>
                 @yield('content')
-              </div>
-          </div>
+            </div>
+        </div>
 
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

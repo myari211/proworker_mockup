@@ -27,6 +27,9 @@ Route::post('/admin/login', 'Auth\AdminController@postLogin');
 
 Route::middleware('role:admin')->group(function() {
     Route::get('/admin/dashboard', 'Admin\AdminController@index')->name('admin.page');
+    Route::get('/admin/job-roles', 'Admin\JobRoleController@index');
+    Route::post('/admin/job-roles/category', 'Admin\JobRoleController@category');
+    Route::post('/admin/job-roles/roles', 'Admin\JobRoleController@roles');
 });
 
 Route::middleware('role:talent')->group(function(){

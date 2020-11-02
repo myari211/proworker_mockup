@@ -1,6 +1,7 @@
 @extends('talent.layouts.app')
 @section('content')
-    <div class="row mt-5">
+<div class="container">
+    <div class="row mt-4">
         <div class="col-lg-4">
             <div class="card rounded-0 border-0 shadow">
                 <div class="card-body">
@@ -17,6 +18,9 @@
                         <div class="card-body">
                             @if($count_profile !== 0)
                                 @foreach($profile as $data)
+                                    <div class="row d-flex justify-content-end pr-4">
+                                        <h3>Personal Inform<span class="text-primary">ation</span></h3>
+                                    </div>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-lg-10">
                                             <h5 class="d-flex align-items-center">
@@ -185,6 +189,9 @@
                                 </form>
                             @else
                                 @foreach($summary as $data)
+                                    <div class="row d-flex justify-content-end pr-4">
+                                        <h3>Sum<span class="text-primary">mary</span></h3>
+                                    </div>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-lg-10">
                                             <h4>{{ $data->summary_name }}</h4>
@@ -212,19 +219,21 @@
                             <div class="row d-flex justify-content-end pr-4">
                                 <h3>Work Expe<span class="text-primary">rience</span></h3>
                             </div>
-                            <div class="row mt-4 d-flex justify-content-center">
+                            <div class="row mt-4 d-flex justify-content-center field-group">
                                 <div class="col-lg-5">
                                     <label for="job_role">Job Role</label>
                                     <select name="job_role" class="form-control">
-                                        <option value="PM">Project Manager</option>
-                                        <option value="EN">Engineer</option>
+                                        @foreach($role as $data)
+                                            <option value="{{ $data->id }}">{{ $data->job_role_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-lg-5">
                                     <label for="job_level">Category</label>
                                     <select name="job_level" class="form-control">
-                                        <option value="DCS">DCS</option>
-                                        <option value="PPKS">PPKS</option>
+                                        @foreach($category as $data)
+                                            <option value="{{ $data->id }}">{{ $data->job_categories }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -267,9 +276,14 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row field-group-copy" style="display:none">
+                                <p>Tes</p>
+                            </div>
+
                             <div class="row d-flex justify-content-end pr-4 pl-4">
                                 <div class="col-lg-12 d-flex justify-content-between pr-4">
-                                    <button type="button" class="btn btn-sm btn-white border-0 p-2 rounded-circle d-flex align-items-center">
+                                    <button type="button" class="btn btn-sm btn-white border-0 p-2 rounded-circle d-flex align-items-center addMore" onclick="javascript:void(0);">
                                         <i class="material-icons text-primary">add</i>
                                     </button>
                                     <button type="submit" class="btn btn-md btn-primary rounded-0 border-0 pl-4">
@@ -447,7 +461,7 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-between pr-5 pl-5">
-                                <button type="button" class="btn btn-white text-primary rounded-circle p-2 d-flex align-items-center">
+                                <button type="button" class="btn btn-white text-primary rounded-circle p-2 d-flex align-items-center" onclick="add()">
                                     <i class="material-icons">add</i>
                                 </button>
                                 <button type="submit" class="btn btn-md btn-primary rounded-0 border-0 shadow">
@@ -460,4 +474,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

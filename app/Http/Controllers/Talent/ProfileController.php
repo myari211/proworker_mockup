@@ -41,4 +41,6 @@ class ProfileController extends Controller
 
         return redirect('/talent/dashboard');
     }
+
+    
 }

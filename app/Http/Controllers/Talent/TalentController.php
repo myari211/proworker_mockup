@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\UserInformation;
 use App\UserSummary;
+use App\JobCategory;
+use App\RoleJob;
 
 class TalentController extends Controller
 {
@@ -26,6 +28,10 @@ class TalentController extends Controller
         $count_summary = UserSummary::where('user_id', $id)->count();
         $summary = UserSummary::where('user_id', $id)->get();
 
-        return view('talent.edit_profile', compact('profile', 'count_profile', 'count_summary', 'summary'));
+        $role = RoleJob::get();
+
+        $category = JobCategory::get();
+
+        return view('talent.edit_profile', compact('profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
     }
 }
