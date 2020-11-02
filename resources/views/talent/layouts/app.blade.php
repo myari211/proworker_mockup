@@ -18,12 +18,15 @@
         <div class="d-flex" id="wrapper">
 
             <!-- Sidebar -->
-            <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="bg-primary border-0 shadow" id="sidebar-wrapper">
               <div class="sidebar-heading">
                 <img src="{{ asset('img/logo.png') }}" class="heading">
               </div>
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Your Profile</a>
+                <a href="#" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                  Your Profile
+                  <i class="fas fa-user"></i>
+                </a>
               </div>
             </div>
             <!-- /#sidebar-wrapper -->

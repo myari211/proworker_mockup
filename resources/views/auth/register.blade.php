@@ -116,7 +116,7 @@
                                     <div class="col-lg-10">
                                         <div class="md-form input-with-post-icon{{ $errors->has('email') ? ' has-error' : '' }}">
                                             <i class="fas fa-at input-prefix"></i>
-                                            <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                            <input type="email" class="form-control" name="email" value="{{ old('email') }}" id="email">
                                             <label for="email">E-Mail Address</label>
                                         </div>
                                         @if ($errors->has('email'))

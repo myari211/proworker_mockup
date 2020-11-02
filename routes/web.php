@@ -19,11 +19,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', function () {
-    return redirect('/talent/dashboard');
-})->name('home');
-
+Route::get('/home', 'HomeController@index');
 
 // talent
-Route::get('/talent/dashboard', 'Talent\TalentController@index');
-Route::get('/talent/profile/{id}', 'Talent\TalentController@profile');
+Route::get('/admin/login', 'Auth\AdminController@getLogin')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminController@postLogin');
+
+Route::middleware('role:admin')->group(function() {
+    Route::get('/admin/dashboard', 'Admin\AdminController@index')->name('admin.page');
+});
+
+Route::middleware('role:talent')->group(function(){
+    Route::get('/talent/dashboard', 'Talent\TalentController@index')->name('user.page');;
+    Route::get('/talent/profile/{id}', 'Talent\TalentController@profile');
+    Route::post('/talent/profile/personal_information/{id}', 'Talent\ProfileController@personal_information');
+    Route::post('/talent/profile/summaries/{id}', 'Talent\ProfileController@user_summary');
+
+});

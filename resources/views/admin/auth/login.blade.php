@@ -100,7 +100,7 @@
                             <div class="row mt-5 d-flex justify-content-center">
                                 <img src="{{ asset('img/logo.png') }}" class="logo-login">
                             </div>
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="">
                                 @csrf
                                 <div class="row mt-4 d-flex justify-content-center">
                                     <div class="col-lg-10">
@@ -155,24 +155,6 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="row mt-4 d-flex justify-content-center">
-                                <a href="/register">
-                                    <small> Don't have an account? Sign Up</small>
-                                </a>
-                            </div>
-                            <div class="row mt-4 d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <button type="button" class="btn btn-danger btn-block">Sign In with Google</button>
-                                </div>
-                            </div>
-                            <div class="row mt-2 d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <button type="button" class="btn blue darken-2 btn-block text-white">Sign In With Facebook</button>
-                                </div>
-                            </div>
-                            <div class="row mt-4 d-flex justify-content-center">
-                                <small class="text-muted">2020 &copy; Proworker | All rights reserved</small> 
-                            </div>
                         </div>
                     </div>
                 </div>
