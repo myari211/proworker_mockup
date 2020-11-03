@@ -40,4 +40,9 @@ class User extends Authenticatable
     ];
 
     public $incrementing = false;
+
+
+    public function socialAccounts(){
+        return $this->hasMany(SocialAccount::class);
+    }
 }

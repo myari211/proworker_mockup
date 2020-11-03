@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Talent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Ramsey\Uuid\Uuid;
 
@@ -42,5 +43,20 @@ class ProfileController extends Controller
         return redirect('/talent/dashboard');
     }
 
+    public function work($id){
+        return view('talent.edit_work');
+    }
+
+    public function avatar($id, Request $request){
+        $file = $request->file('user_avatar');
+        $fileName = $file->getClientOriginalName();
+        $request->file('user_avatar')->move('avatar/', $fileName);
+
+        $profile = DB::table('user_information')->where('user_id', $id)->update([
+            'user_avatar'=> $fileName,
+        ]);
+
+        return redirect('/talent/dashboard');
+    }
     
 }

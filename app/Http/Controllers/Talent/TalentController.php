@@ -25,6 +25,8 @@ class TalentController extends Controller
         $count_profile = DB::table('user_information')->where('user_id', $id)->count();
         $profile = DB::table('user_information')->where('user_id', $id)->get();
 
+        $user = DB::table('users')->where('id', $id)->count();
+
         $count_summary = UserSummary::where('user_id', $id)->count();
         $summary = UserSummary::where('user_id', $id)->get();
 
@@ -32,6 +34,20 @@ class TalentController extends Controller
 
         $category = JobCategory::get();
 
-        return view('talent.edit_profile', compact('profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
+        return view('talent.edit_profile', compact('user', 'profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
+    }
+
+    public function tes($id){
+        $count_profile = DB::table('user_information')->where('user_id', $id)->count();
+        $profile = DB::table('user_information')->where('user_id', $id)->get();
+
+        $count_summary = UserSummary::where('user_id', $id)->count();
+        $summary = UserSummary::where('user_id', $id)->get();
+
+        $role = RoleJob::get();
+
+        $category = JobCategory::get();
+        
+        return view('tes.tes', compact('profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
     }
 }

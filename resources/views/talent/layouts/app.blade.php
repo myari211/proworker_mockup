@@ -19,11 +19,23 @@
             <!-- Sidebar -->
             <div class="bg-primary border-0 shadow" id="sidebar-wrapper">
               <div class="sidebar-heading">
-                <img src="{{ asset('img/logo.png') }}" class="heading">
+                <img src="{{ asset('img/login.png') }}" class="heading">
               </div>
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
-                  Your Profile
+                <a href="/talent/dashboard" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                  Dashboard
+                  <i class="fas fa-user"></i>
+                </a>
+              </div>
+              <div class="list-group list-group-flush">
+                <a href="/talent/profile/{{ Auth::user()->id }}" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                  Profile
+                  <i class="fas fa-user"></i>
+                </a>
+              </div>
+              <div class="list-group list-group-flush pl-3">
+                <a href="/talent/profile/work/{{ Auth::user()->id }}" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                  <small>Work Experience</small>
                   <i class="fas fa-user"></i>
                 </a>
               </div>
@@ -40,7 +52,7 @@
                     </button>
                 </div>
                 <div>
-                    <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
+                    <button type="button" class="btn btn-success btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
                         <i class="fas fa-comments"></i>
                     </button>
                     <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">

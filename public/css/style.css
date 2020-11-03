@@ -35,7 +35,7 @@
 @media (min-width: 768px) {
 #sidebar-wrapper {
         margin-left: 0;
-  }
+}
 
 #page-content-wrapper {
     min-width: 0;
@@ -60,6 +60,6 @@
 }
 
 .profile{
-    width:250px;
+    width:200px;
     height:250px;
 }

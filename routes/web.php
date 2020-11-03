@@ -37,5 +37,13 @@ Route::middleware('role:talent')->group(function(){
     Route::get('/talent/profile/{id}', 'Talent\TalentController@profile');
     Route::post('/talent/profile/personal_information/{id}', 'Talent\ProfileController@personal_information');
     Route::post('/talent/profile/summaries/{id}', 'Talent\ProfileController@user_summary');
-
+    Route::get('/talent/profile/work/{id}', 'Talent\ProfileController@work');
+    Route::post('/talent/profile/avatar/{id}', 'Talent\ProfileController@avatar');
 });
+
+
+Route::get('/tes/{id}', 'Talent\TalentController@tes');
+
+//social Auth
+Route::get('/auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
+Route::get('/auth/{provider}/callback', 'Auth\SocialiteController@handleProvideCallback');

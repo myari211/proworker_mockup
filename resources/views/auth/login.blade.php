@@ -162,7 +162,7 @@
                             </div>
                             <div class="row mt-4 d-flex justify-content-center">
                                 <div class="col-lg-10">
-                                    <button type="button" class="btn btn-danger btn-block">Sign In with Google</button>
+                                    <button type="button" class="btn btn-danger btn-block" onclick="location='/auth/google';">Sign In with Google</button>
                                 </div>
                             </div>
                             <div class="row mt-2 d-flex justify-content-center">
