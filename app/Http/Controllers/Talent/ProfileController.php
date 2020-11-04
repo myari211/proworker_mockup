@@ -9,6 +9,8 @@ use Ramsey\Uuid\Uuid;
 
 use App\UserInformation;
 use App\UserSummary;
+use App\Education;
+use App\Skills;
 
 
 class ProfileController extends Controller
@@ -52,11 +54,36 @@ class ProfileController extends Controller
         $fileName = $file->getClientOriginalName();
         $request->file('user_avatar')->move('avatar/', $fileName);
 
-        $profile = DB::table('user_information')->where('user_id', $id)->update([
+        $profile = DB::table('avatar')->updateOrInsert([
+            'id' => Uuid::uuid4()->toString(),
+            'user_id' => $id,
             'user_avatar'=> $fileName,
         ]);
 
         return redirect('/talent/dashboard');
+    }
+
+    public function education($id, Request $request) {
+
+        $education = new Education;
+        $education->id = Uuid::uuid4()->toString();
+        $education->user_id = $id;
+        $education->education_degree = $request->education_degree;
+        $education->education_institute_name = $request->education_institute_name;
+        $education->education_field_of_study = $request->education_field_of_study;
+        $education->education_start_date = $request->education_start_date;
+        $education->education_end_date = $request->education_end_date;
+        $education->education_description = $request->education_description;
+
+        $education->save();
+
+        return redirect('/talent/profile/'.$id);
+
+    }
+
+    public function skills($id, Request $request){
+
+        return redirect('/talent/profile/'.$id);
     }
     
 }

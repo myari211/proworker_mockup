@@ -4,14 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Avatar extends Model
+class Level extends Model
 {
-    protected $table = "avatar";
+    protected $table = "levels";
 
     protected $fillable = [
-        "id",
-        "user_id",
-        "user_avatar"
+        "level_name"
     ];
 
     public $incrementing = false;

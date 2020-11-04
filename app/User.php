@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function socialAccounts(){
         return $this->hasMany(SocialAccount::class);
     }
+
+    public function skills(){
+        return $this->belongsToMany('App\Skills');
+    }
 }

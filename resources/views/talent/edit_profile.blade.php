@@ -5,13 +5,13 @@
         <div class="col-lg-4">
             <div class="card rounded-0 border-0 shadow">
                 <div class="card-body">
-                        @if($user != 0 && $count_profile == 0)
+                        @if($avatar === 0)
                             <div class="row d-flex justify-content-center">
                                 <img src="{{ asset('img/registration.png') }}" class="profile rounded-circle border">
                             </div>
                         @else
                             <div class="row d-lfex justify-content-center">
-                                @foreach($profile as $data)
+                                @foreach($image as $data)
                                     <img src="{{ asset('avatar/'.$data->user_avatar) }}" class="profile rounded-circle border">
                                 @endforeach
                             </div>
@@ -32,15 +32,7 @@
                             @if($count_profile !== 0)
                                 @foreach($profile as $data)
                                     <div class="row d-flex justify-content-end pr-4">
-                                        <h3>Personal Inform<span class="text-primary">ation</span></h3>
-                                    </div>
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-lg-10">
-                                            <h5 class="d-flex align-items-center">
-                                                <i class="fas fa-user"></i>&nbsp;
-                                                {{ $data->user_first_name }} {{ $data->user_last_name }}
-                                            </h5>
-                                        </div>
+                                        <h3>{{ $data->user_first_name }} {{ $data->user_last_name }}</h3>
                                     </div>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-lg-5">
@@ -171,62 +163,110 @@
                             <div class="row d-flex justify-content-end pr-4">
                                 <h3>Educa<span class="text-primary">tion</span></h3>
                             </div>
-                            <div class="row mt-4 d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <div class="md-form input-with-post-icon">
-                                        <i class="fas fa-school input-prefix"></i>
-                                        <input type="text" class="form-control" name="instititute_name">
-                                        <label>Insititute</label>
+                            @if($education_count === 0)
+                                <form method="post" action="/talent/education/{{ Auth::user()->id }}">
+                                    @csrf
+                                    <div class="row mt-4 d-flex justify-content-center">
+                                        <div class="col-lg-10">
+                                            <div class="md-form input-with-post-icon">
+                                                <i class="fas fa-school input-prefix"></i>
+                                                <input type="text" class="form-control" name="education_institute_name">
+                                                <label>Insititute</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <div class="md-form input-with-post-icon">
-                                        <i class="fas fa-graduation-cap input-prefix"></i>
-                                        <input type="text" name="field_of_study" class="form-control" id="field_of_study">
-                                        <label for="field_of_study">Field Of Study</label>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-10">
+                                            <div class="md-form input-with-post-icon">
+                                                <i class="fas fa-graduation-cap input-prefix"></i>
+                                                <input type="text" name="education_field_of_study" class="form-control" id="field_of_study">
+                                                <label for="field_of_study">Field Of Study</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-4">
-                                <label>Degree</label>
-                                    <select name="education_degree" class="form-control">
-                                        <option value="elementary_school">Elementary School</option>
-                                        <option value="junior_high_school">Junior High School</option>
-                                        <option value="senior_high_school/vocational">Senior/Vocational High School</option>
-                                        <option value=""></option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="md-form">
-                                        <input type="date" name="education_start_date" class="form-control" id="education_start_date">
-                                        <label for="education_start_date">Start From</label>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-4">
+                                        <label>Degree</label>
+                                            <select name="education_degree" class="form-control">
+                                                <option value="elementary_school">Elementary School</option>
+                                                <option value="junior_high_school">Junior High School</option>
+                                                <option value="senior_high_school/vocational">Senior/Vocational High School</option>
+                                                <option value="diploma">Diploma</option>
+                                                <option value="banchelors_degree">Banchelors Degree</option>
+                                                <option value="master_degree">Master Degree</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="md-form">
+                                                <input type="date" name="education_start_date" class="form-control" id="education_start_date">
+                                                <label for="education_start_date">Start From</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="md-form">
+                                                <input type="date" name="education_end_date" class="form-control" id="education_end_date">
+                                                <label for="education_end_date">Until</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="md-form">
-                                        <input type="date" name="education_end_date" class="form-control" id="education_end_date">
-                                        <label for="education_end_date">Until</label>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-10">
+                                            <div class="md-form">
+                                                <textarea id="form7" name="education_description" class="md-textarea form-control" rows="3"></textarea>
+                                                <label for="form7">Description</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <div class="md-form">
-                                        <textarea id="form7" name="education_description" class="md-textarea form-control" rows="3"></textarea>
-                                        <label for="form7">Description</label>
+                                    <div class="row mt-5 d-flex justify-content-center">
+                                        <div class="col-lg-10 d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary border-0 btn-md btn-block">
+                                                Save
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row mt-5 d-flex justify-content-center">
-                                <div class="col-lg-10 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary border-0 btn-md btn-block">
-                                        Save
-                                    </button>
-                                </div>
-                            </div>
+                                </form>
+                            @else
+                                @foreach($education as $data)
+                                    <div class="row mt-4 d-flex justify-content-center">
+                                        <div class="col-lg-5">
+                                            <label>Degree's</label>
+                                            @if($data->education_degree === "elementary_school")
+                                                <h5>Elementary School</h5>
+                                            @elseif($data->education_degree === "junior_high_school")
+                                                <h5>Junior High School</h5>
+                                            @elseif($data->education_degree === "diploma")
+                                                <h5>Diploma</h5>
+                                            @elseif($data->education_degree === "banchelors_degree")
+                                                <h5>Banchelor's Degree</h5>
+                                            @elseif($data->education_degree === "master_degree")
+                                                <h5>Master Degree</h5>
+                                            @else
+                                                <h5>Senior/Vocational High School</h5>
+                                            @endif
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <label>Field Of Study</label>
+                                            <h5>{{ $data->education_field_of_study }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 d-flex justify-content-center">
+                                        <div class="col-lg-10">
+                                            <label>Institute</label>
+                                            <h5>{{ $data->education_institute_name }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 d-flex justify-content-center">
+                                        <div class="col-lg-5">
+                                            <label>Start</label>
+                                            <h6>{{ $data->education_start_date}}</h5>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <label>Graduate</label>
+                                            <h6>{{ $data->education_end_date}}</h5>
+                                        </div>            
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -238,37 +278,41 @@
                             <div class="row d-flex justify-content-end pr-4">
                                 <h3>Skil<span class="text-primary">ls</span></h3>
                             </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-5">
-                                    <div class="md-form input-with-post-icon">
-                                        <i class="fas fa-user-tie input-prefix"></i>
-                                        <input type="text" class="form-control" id="skill" name="skill">
-                                        <label for="skill">Skill</label>
+                            <form method="post" action="/talent/skills/{{ Auth::user()->id }}">
+                                @csrf
+                                <div class="row d-flex justify-content-center after">
+                                    <div class="col-lg-5">
+                                        <div class="md-form input-with-post-icon">
+                                            <i class="fas fa-user-tie input-prefix"></i>
+                                            <input type="text" class="form-control" id="skill" name="skill">
+                                            <label for="skill">Skill</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <label for="level">Level</label>
+                                        <select name="skill_level" class="form-control" id="level">
+                                            <option value="Beginner">Beginner</option>
+                                            <option value="Intermediate">Intermediate</option>
+                                            <option value="Advance">Advance</option>
+                                            <option value="Expert">Expert</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
-                                    <label for="level">Level</label>
-                                    <select name="skill_level" class="form-control" id="level">
-                                        <option value="">Beginer</option>
-                                        <option value="">Intermediate</option>
-                                        <option value="">Advance</option>
-                                    </select>
+                                <div class="row d-flex justify-content-center mt-5">
+                                    <div class="col-lg-10">
+                                        <button type="button" class="btn btn-outline-primary btn-md btn-block d-flex justify-content-center align-items-center" id="add">
+                                            Add Skill<i class="material-icons">add</i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row d-flex justify-content-center mt-5">
-                                <div class="col-lg-10">
-                                    <button type="button" class="btn btn-outline-primary btn-md btn-block d-flex justify-content-center align-items-center" onclick="add()">
-                                        Add Skill<i class="material-icons">add</i>
-                                    </button>
+                                <div class="row mt-2 d-flex justify-content-center">
+                                    <div class="col-lg-10">
+                                        <button type="submit" class="btn btn-md btn-primary shadow btn-block">
+                                            Save
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mt-2 d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <button type="submit" class="btn btn-md btn-primary shadow btn-block">
-                                        Save
-                                    </button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

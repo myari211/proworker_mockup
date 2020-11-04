@@ -30,6 +30,8 @@ Route::middleware('role:admin')->group(function() {
     Route::get('/admin/job-roles', 'Admin\JobRoleController@index');
     Route::post('/admin/job-roles/category', 'Admin\JobRoleController@category');
     Route::post('/admin/job-roles/roles', 'Admin\JobRoleController@roles');
+    Route::get('/admin/level', 'Admin\LevelController@index');
+    Route::post('/admin/level/input', 'Admin\LevelController@input');
 });
 
 Route::middleware('role:talent')->group(function(){
@@ -39,6 +41,8 @@ Route::middleware('role:talent')->group(function(){
     Route::post('/talent/profile/summaries/{id}', 'Talent\ProfileController@user_summary');
     Route::get('/talent/profile/work/{id}', 'Talent\ProfileController@work');
     Route::post('/talent/profile/avatar/{id}', 'Talent\ProfileController@avatar');
+    Route::post('/talent/education/{id}', 'Talent\ProfileController@education');
+    Route::post('/talent/skills/{id}', 'Talent\ProfileController@skills');
 });
 
 

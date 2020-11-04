@@ -23,7 +23,6 @@ class CreateUserInformationTable extends Migration
             $table->date('user_birth_date');
             $table->enum('user_gender', ['male', 'female']);
             $table->string('user_nationality');
-            $table->string('user_avatar');
             $table->timestamps();
         });
 

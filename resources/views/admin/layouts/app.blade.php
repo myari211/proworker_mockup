@@ -28,9 +28,15 @@
                         <i class="fas fa-user"></i>
                     </a>
                 </div>
-                <div class="list-group list-group-flush">
-                    <a href="/admin/job-roles" class="pl-5 list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
-                        Job Roles
+                <div class="list-group list-group-flush pl-4">
+                    <a href="/admin/job-roles" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        <small>Job Roles</small>
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                </div>
+                <div class="list-group list-group-flush pl-4">
+                    <a href="/admin/level" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        <small>Level</small>
                         <i class="fas fa-briefcase"></i>
                     </a>
                 </div>
