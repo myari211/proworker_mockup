@@ -229,7 +229,7 @@
                                 @foreach($education as $data)
                                     <div class="row mt-4 d-flex justify-content-center">
                                         <div class="col-lg-5">
-                                            <label>Degree's</label>
+                                            <label>Degree's</label>  
                                             @if($data->education_degree === "elementary_school")
                                                 <h5>Elementary School</h5>
                                             @elseif($data->education_degree === "junior_high_school")
@@ -278,19 +278,22 @@
                             <div class="row d-flex justify-content-end pr-4">
                                 <h3>Skil<span class="text-primary">ls</span></h3>
                             </div>
+                            
                             <form method="post" action="/talent/skills/{{ Auth::user()->id }}">
                                 @csrf
-                                <div class="row d-flex justify-content-center after">
+                                <div class="controls">
+                                <div class="entry">
+                                <div class="row d-flex justify-content-center">
                                     <div class="col-lg-5">
                                         <div class="md-form input-with-post-icon">
                                             <i class="fas fa-user-tie input-prefix"></i>
-                                            <input type="text" class="form-control" id="skill" name="skill">
+                                            <input type="text" class="form-control" id="skill" name="skill[]">
                                             <label for="skill">Skill</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <label for="level">Level</label>
-                                        <select name="skill_level" class="form-control" id="level">
+                                        <select name="skill_level[]" class="form-control" id="level">
                                             <option value="Beginner">Beginner</option>
                                             <option value="Intermediate">Intermediate</option>
                                             <option value="Advance">Advance</option>
@@ -300,10 +303,11 @@
                                 </div>
                                 <div class="row d-flex justify-content-center mt-5">
                                     <div class="col-lg-10">
-                                        <button type="button" class="btn btn-outline-primary btn-md btn-block d-flex justify-content-center align-items-center" id="add">
+                                        <button type="button" class="btn btn-outline-primary btn-md btn-block d-flex justify-content-center align-items-center addSkill">
                                             Add Skill<i class="material-icons">add</i>
                                         </button>
                                     </div>
+                                </div>
                                 </div>
                                 <div class="row mt-2 d-flex justify-content-center">
                                     <div class="col-lg-10">
@@ -313,6 +317,7 @@
                                     </div>
                                 </div>
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>
