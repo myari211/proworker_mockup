@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Guest\DashboardController@index');
 
 Auth::routes();
 
@@ -27,11 +25,19 @@ Route::post('/admin/login', 'Auth\AdminController@postLogin');
 
 Route::middleware('role:admin')->group(function() {
     Route::get('/admin/dashboard', 'Admin\AdminController@index')->name('admin.page');
+    
+    //Job Roles
+    Route::post('/admin/job-roles/roles', 'Admin\JobRoleController@roles');
+    Route::post('/admin/job-roles/roles/edit/{id}', 'Admin\JobRoleController@roles_update');
+
     Route::get('/admin/job-roles', 'Admin\JobRoleController@index');
     Route::post('/admin/job-roles/category', 'Admin\JobRoleController@category');
-    Route::post('/admin/job-roles/roles', 'Admin\JobRoleController@roles');
     Route::get('/admin/level', 'Admin\LevelController@index');
     Route::post('/admin/level/input', 'Admin\LevelController@input');
+    Route::get('/admin/skills', 'Admin\SkillsController@index');
+
+    Route::post('/admin/specializations/edit/{id}', 'Admin\JobRoleController@specializations_update');
+    Route::post('/admin/specializations', 'Admin\JobRoleController@specializations');
 });
 
 Route::middleware('role:talent')->group(function(){
@@ -51,3 +57,6 @@ Route::get('/tes/{id}', 'Talent\TalentController@tes');
 //social Auth
 Route::get('/auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
 Route::get('/auth/{provider}/callback', 'Auth\SocialiteController@handleProvideCallback');
+
+
+

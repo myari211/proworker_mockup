@@ -20,24 +20,30 @@
             <!-- Sidebar -->
             <div class="bg-primary border-0 shadow" id="sidebar-wrapper">
                 <div class="sidebar-heading">
-                    <img src="{{ asset('img/logo.png') }}" class="heading">
+                    <img src="{{ asset('img/login.png') }}" class="heading">
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
-                        Bank Data
-                        <i class="fas fa-user"></i>
+                    <a href="#" class="bold list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h5 class="fas fa-database"></h5>
+                        <h5>Bank Data</h5>
                     </a>
                 </div>
                 <div class="list-group list-group-flush pl-4">
                     <a href="/admin/job-roles" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
-                        <small>Job Roles</small>
+                        Job Roles
                         <i class="fas fa-briefcase"></i>
                     </a>
                 </div>
                 <div class="list-group list-group-flush pl-4">
                     <a href="/admin/level" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
-                        <small>Level</small>
-                        <i class="fas fa-briefcase"></i>
+                        Level
+                        <i class="fas fa-project-diagram"></i>
+                    </a>
+                </div>
+                <div class="list-group list-group-flush pl-4">
+                    <a href="/admin/skills" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        Skills
+                        <i class="fas fa-poll"></i>
                     </a>
                 </div>
             </div>
@@ -67,6 +73,7 @@
                             </form>
                         </div>
                 </div>
+                @include('sweetalert::alert')
                 @yield('content')
             </div>
         </div>

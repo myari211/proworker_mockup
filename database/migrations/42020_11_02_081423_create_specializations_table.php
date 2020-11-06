@@ -16,7 +16,13 @@ class CreateSpecializationsTable extends Migration
         Schema::create('specializations', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('specialization_name');
+            $table->string('category_name');
+            $table->string('image')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('specializations', function($table) {
+            $table->foreign('category_name')->references('id')->on('categories');
         });
     }
 

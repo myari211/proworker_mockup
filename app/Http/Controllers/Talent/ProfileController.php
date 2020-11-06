@@ -81,9 +81,4 @@ class ProfileController extends Controller
 
     }
 
-    public function skills($id, Request $request){
-
-        return redirect('/talent/profile/'.$id);
-    }
-    
 }

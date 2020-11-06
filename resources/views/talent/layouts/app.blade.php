@@ -24,7 +24,7 @@
               <div class="list-group list-group-flush">
                 <a href="/talent/dashboard" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
                   Dashboard
-                  <i class="fas fa-user"></i>
+                  <small class="fas fa-user"></small>
                 </a>
               </div>
               <div class="list-group list-group-flush">

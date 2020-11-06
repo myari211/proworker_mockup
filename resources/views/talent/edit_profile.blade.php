@@ -287,17 +287,16 @@
                                     <div class="col-lg-5">
                                         <div class="md-form input-with-post-icon">
                                             <i class="fas fa-user-tie input-prefix"></i>
-                                            <input type="text" class="form-control" id="skill" name="skill[]">
+                                            <input type="text" class="form-control" id="skill" name="skill">
                                             <label for="skill">Skill</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-5">
                                         <label for="level">Level</label>
-                                        <select name="skill_level[]" class="form-control" id="level">
-                                            <option value="Beginner">Beginner</option>
-                                            <option value="Intermediate">Intermediate</option>
-                                            <option value="Advance">Advance</option>
-                                            <option value="Expert">Expert</option>
+                                        <select name="skill_level" class="form-control" id="level">
+                                            @foreach($level as $data)
+                                                <option value="{{ $data->id }}">{{$data->level_name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
