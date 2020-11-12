@@ -14,7 +14,23 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     </head>
-    <body>	
+    <body>
+        <div class="preloader">
+            <div class="loading">
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-secondary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-danger" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
         <div class="d-flex" id="wrapper">
 
             <!-- Sidebar -->
@@ -23,10 +39,10 @@
                     <img src="{{ asset('img/login.png') }}" class="heading">
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="#" class="bold list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                    <span class="bold list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="fas fa-database"></h5>
                         <h5>Bank Data</h5>
-                    </a>
+                    </span>
                 </div>
                 <div class="list-group list-group-flush pl-4">
                     <a href="/admin/job-roles" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
@@ -46,7 +62,20 @@
                         <i class="fas fa-poll"></i>
                     </a>
                 </div>
+                <div class="list-group list-group-flush">
+                    <span class="bold list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h5 class="fas fa-user"></h5>
+                        <h5>User</h5>
+                    </span>
+                </div>
+                <div class="list-group list-group-flush pl-4">
+                    <a href="/admin/user/list" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                        Users List
+                        <i class="fas fa-user-tie"></i>
+                    </a>
+                </div>
             </div>
+            
             <!-- /#sidebar-wrapper -->
         
             <!-- Page Content -->

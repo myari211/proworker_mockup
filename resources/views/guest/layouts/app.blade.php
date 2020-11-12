@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/guest/slicknav.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/guest/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 

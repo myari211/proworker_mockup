@@ -16,8 +16,14 @@ class CreateSkillsTable extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('skill_name');
-            $table->string('skill_level');
+            $table->string('level_id');
+            $table->string('user_id');
             $table->timestamps();
+        });
+
+        Schema::table('skills', function ($table) {
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('level_id')->references('id')->on('levels');
         });
     }
 

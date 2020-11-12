@@ -23,6 +23,7 @@ class LevelController extends Controller
 
         $level->save();
 
+        alert()->success('Completed', 'Level Has Been Added');
         return redirect()->to('/admin/level');
     }
 }

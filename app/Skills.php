@@ -9,13 +9,11 @@ class Skills extends Model
     protected $table = "skills";
 
     protected $fillable = [
-        "skill_level",
-        "skill_name"
+        "id",
+        "level_id",
+        "skill_name",
+        "user_id"
     ];
 
     public $incrementing = false;
-
-    public function user(){
-        return $this->belongsToMany('App\User');
-    }
 }

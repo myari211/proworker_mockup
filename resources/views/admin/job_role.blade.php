@@ -164,14 +164,21 @@
                             <div class="col-lg-12">
                                 <div class="card border-0 shadow rounded-0">
                                     <div class="card-body pb-2 d-flex align-items-center justify-content-between pr-0">
-                                        <div>
-                                            <div class="row">
-                                                <h5>{{ $data->specialization_name }}</h5>
+                                            <div>
+                                                @if($data->image != null)
+                                                    <img src="{{ asset('img/image_web/'.$data->image) }}" style="width:40px; height:40px">
+                                                @else
+                                                    <img src="{{ asset('img/avatar-default.png') }}" style="width:40px; height:40px">
+                                                @endif
                                             </div>
-                                            <div class="row">
-                                                <small class="text-muted">{{ $data->job_categories }}</small>
+                                            <div>
+                                                <div class="row">
+                                                    <h5>{{ $data->specialization_name }}</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <small class="text-muted">{{ $data->job_categories }}</small>
+                                                </div>
                                             </div>
-                                        </div>
                                         <div>
                                             <button type="button" class="btn btn-warning btn-sm p-2 rounded-circle mr-0" data-toggle="modal" data-target="#special{{ $data->primary }}">
                                                 <i class="fas fa-edit"></i>
@@ -228,7 +235,7 @@
 @endforeach
 
 @foreach($special_all as $data)
-<div class="modal fade" id="special{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="special{{ $data->primary }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header yellow darken-2">
@@ -238,7 +245,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/admin/job-roles/specialization/edit/{{ $data->primary }}" method="post">
+                <form action="/admin/job-roles/specializations/edit/{{ $data->primary }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-5">
@@ -267,11 +274,8 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-10">
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="image">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="image-web">
                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                 </div>
                             </div>

@@ -12,6 +12,7 @@ use App\RoleJob;
 use App\Avatar;
 use App\Education;
 use App\Level;
+use App\Skills;
 
 class TalentController extends Controller
 {
@@ -33,7 +34,10 @@ class TalentController extends Controller
         $count_summary = UserSummary::where('user_id', $id)->count();
         $summary = UserSummary::where('user_id', $id)->get();
 
-        $level = Level::all();
+        $level = Level::get();
+
+        $skill_count = Skills::where('user_id', $id)->count();
+        $skill = DB::table('skills')->where('user_id', $id)->join('levels', 'skills.level_id', '=', 'levels.id')->get();
 
         $education_count = Education::where('user_id', $id)->count();
         $education = Education::all();
@@ -45,7 +49,7 @@ class TalentController extends Controller
         $avatar = DB::table('avatar')->join('users', 'users.id', '=', 'avatar.user_id')->count();
         $image = DB::table('avatar')->where('user_id', $id)->get();
 
-        return view('talent.edit_profile', compact('education', 'education_count', 'level', 'image', 'avatar', 'user', 'profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
+        return view('talent.edit_profile', compact('skill', 'skill_count', 'education', 'education_count', 'level', 'image', 'avatar', 'user', 'profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
     }
 
 

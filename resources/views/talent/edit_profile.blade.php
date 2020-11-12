@@ -275,48 +275,56 @@
                 <div class="col-lg-12">
                     <div class="card shadow border-0 rounded-0 mb-4">
                         <div class="card-body">
-                            <div class="row d-flex justify-content-end pr-4">
-                                <h3>Skil<span class="text-primary">ls</span></h3>
-                            </div>
-                            
-                            <form method="post" action="/talent/skills/{{ Auth::user()->id }}">
-                                @csrf
-                                <div class="controls">
-                                <div class="entry">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-5">
-                                        <div class="md-form input-with-post-icon">
-                                            <i class="fas fa-user-tie input-prefix"></i>
-                                            <input type="text" class="form-control" id="skill" name="skill">
-                                            <label for="skill">Skill</label>
+                            @if($skill_count < 1)
+                                <div class="row d-flex justify-content-between pr-4">
+                                    <button type="button" class="btn btn-primary rounded-circle shadow add-more">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <h3>Skil<span class="text-primary">ls</span></h3>
+                                </div>
+                                <form method="post" action="/talent/skills/{{ Auth::user()->id }}">
+                                    @csrf
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-10">
+                                            <div class="md-form input-with-post-icon">
+                                                <i class="fas fa-user-tie input-prefix"></i>
+                                                <input type="text" class="form-control" id="skill" name="skill[]">
+                                                <label for="skill">Skills</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-5">
-                                        <label for="level">Level</label>
-                                        <select name="skill_level" class="form-control" id="level">
-                                            @foreach($level as $data)
-                                                <option value="{{ $data->id }}">{{$data->level_name}}</option>
+                                    <div class="row d-flex justify-content-center after-add-more">
+                                        <div class="col-lg-10">
+                                            <label for="level">Level</label>
+                                            <select name="level" class="form-control" name="level[]" id="level">
+                                                @foreach($level as $data)
+                                                    <option value="{{ $data->id }}">{{ $data->level_name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 d-flex justify-content-center">
+                                        <div class="col-lg-10">
+                                            <button type="submit" class="btn btn-primary btn-block btn-md">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            @else
+                                <div class="row d-flex justify-content-end pr-4">
+                                    <h3>Skil<span class="text-primary">ls</span></h3>
+                                </div>
+                                <div class="row mt-4 d-flex justify-content-center">
+                                    <div class="col-lg-10">
+                                        <ul>
+                                            @foreach($skill as $data)
+                                                <li>{{ $data->skill_name }} - {{ $data->level_name }}</li>
                                             @endforeach
-                                        </select>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row d-flex justify-content-center mt-5">
-                                    <div class="col-lg-10">
-                                        <button type="button" class="btn btn-outline-primary btn-md btn-block d-flex justify-content-center align-items-center addSkill">
-                                            Add Skill<i class="material-icons">add</i>
-                                        </button>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row mt-2 d-flex justify-content-center">
-                                    <div class="col-lg-10">
-                                        <button type="submit" class="btn btn-md btn-primary shadow btn-block">
-                                            Save
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -387,6 +395,37 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="copy invisible mt-5">
+    <div class="control-group">
+        <div class="row mt-5">
+            <div class="col-lg-12 d-flex justify-content-end">
+                <a class="remove">
+                    <span class="fas fa-times"></span>
+                </a>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10">
+                <div class="md-form input-with-post-icon">
+                    <i class="fas fa-user-tie input-prefix"></i>
+                    <input type="text" class="form-control" id="skill" name="skill[]">
+                    <label for="skill">Skills</label>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10">
+                <label for="level">Level</label>
+                <select name="level" class="form-control" name="level[]" id="level">
+                    @foreach($level as $data)
+                        <option value="{{ $data->id }}">{{ $data->level_name }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>

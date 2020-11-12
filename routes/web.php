@@ -30,13 +30,17 @@ Route::middleware('role:admin')->group(function() {
     Route::post('/admin/job-roles/roles', 'Admin\JobRoleController@roles');
     Route::post('/admin/job-roles/roles/edit/{id}', 'Admin\JobRoleController@roles_update');
 
+    //user-list
+    Route::get('/admin/user/list', 'Admin\UserController@index');
+    Route::get('/admin/user/{id}', 'Admin\UserController@details');
+
     Route::get('/admin/job-roles', 'Admin\JobRoleController@index');
     Route::post('/admin/job-roles/category', 'Admin\JobRoleController@category');
     Route::get('/admin/level', 'Admin\LevelController@index');
     Route::post('/admin/level/input', 'Admin\LevelController@input');
     Route::get('/admin/skills', 'Admin\SkillsController@index');
 
-    Route::post('/admin/specializations/edit/{id}', 'Admin\JobRoleController@specializations_update');
+    Route::post('/admin/job-roles/specializations/edit/{id}', 'Admin\JobRoleController@specializations_update');
     Route::post('/admin/specializations', 'Admin\JobRoleController@specializations');
 });
 
@@ -46,6 +50,10 @@ Route::middleware('role:talent')->group(function(){
     Route::post('/talent/profile/personal_information/{id}', 'Talent\ProfileController@personal_information');
     Route::post('/talent/profile/summaries/{id}', 'Talent\ProfileController@user_summary');
     Route::get('/talent/profile/work/{id}', 'Talent\ProfileController@work');
+    Route::post('/talent/profile/work/input/{id}', 'Talent\WorkController@work');
+
+    Route::post('/talent/profile/work/summary/{id}', 'Talent\WorkController@index');
+
     Route::post('/talent/profile/avatar/{id}', 'Talent\ProfileController@avatar');
     Route::post('/talent/education/{id}', 'Talent\ProfileController@education');
     Route::post('/talent/skills/{id}', 'Talent\ProfileController@skills');

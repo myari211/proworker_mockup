@@ -11,6 +11,8 @@ use App\UserInformation;
 use App\UserSummary;
 use App\Education;
 use App\Skills;
+use App\RoleJob;
+use App\JobCategory;
 
 
 class ProfileController extends Controller
@@ -30,7 +32,7 @@ class ProfileController extends Controller
         $personal->save();
 
         alert()->success('Your Data Has Been Record', 'Complete');
-        return redirect('/talent/dashboard');
+        return redirect('/talent/profile/'.$id);
     }
 
     public function user_summary($id, Request $request){
@@ -46,7 +48,14 @@ class ProfileController extends Controller
     }
 
     public function work($id){
-        return view('talent.edit_work');
+        $role = RoleJob::get();
+        $category = JobCategory::get();
+
+        $summaries_count = UserSummary::where('user_id', $id)->count();
+        $summaries = UserSummary::where('user_id', $id)->get();
+
+
+        return view('talent.edit_work', compact('role', 'category', 'summaries_count', 'summaries'));
     }
 
     public function avatar($id, Request $request){
@@ -59,7 +68,8 @@ class ProfileController extends Controller
             'user_id' => $id,
             'user_avatar'=> $fileName,
         ]);
-
+        
+        alert()->success('Complete', 'Your Avatar Has Been Changed');
         return redirect('/talent/dashboard');
     }
 
@@ -77,8 +87,38 @@ class ProfileController extends Controller
 
         $education->save();
 
+
+        alert()->success('Complete', 'Your data has been recorded');
         return redirect('/talent/profile/'.$id);
 
     }
+
+
+    public function skills($id, Request $request){
+        $data = [];
+
+        for($i = 0; $i < count($request->skill); $i++){
+            $data[] = array(
+                "id" => Uuid::uuid4()->toString(),
+                "skill_name" => $request->skill[$i],
+                "level_id" => $request->level,
+                "user_id" => $id,
+            );
+        }
+
+        
+
+        $skill = Skills::insert($data);
+
+        if(!$skill){
+            alert()->danger('Failed', 'Failed To Save Skills');
+        }
+        else{
+            alert()->success('Complete', 'Your Skills Has Been Added');
+        }
+
+        return redirect('/talent/profile/'.$id);
+    }
+
 
 }

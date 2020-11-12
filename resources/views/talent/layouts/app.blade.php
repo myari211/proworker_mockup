@@ -14,7 +14,23 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     </head>
-    <body>	
+    <body>
+      <div class="preloader">
+        <div class="loading">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
           <div class="d-flex" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-primary border-0 shadow" id="sidebar-wrapper">
@@ -28,15 +44,20 @@
                 </a>
               </div>
               <div class="list-group list-group-flush">
-                <a href="/talent/profile/{{ Auth::user()->id }}" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                <span class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
                   Profile
-                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+              <div class="list-group list-group-flush pl-3">
+                <a href="/talent/profile/{{ Auth::user()->id }}" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
+                  <small>Personal Information</small>
+                  <i class="fas fa-user-tie"></i>
                 </a>
               </div>
               <div class="list-group list-group-flush pl-3">
                 <a href="/talent/profile/work/{{ Auth::user()->id }}" class="list-group-item list-group-item-action bg-primary text-white d-flex justify-content-between align-items-center">
                   <small>Work Experience</small>
-                  <i class="fas fa-user"></i>
+                  <i class="fas fa-briefcase"></i>
                 </a>
               </div>
             </div>
@@ -65,6 +86,7 @@
                         @csrf
                     </form>
                 </div>
+                @include('sweetalert::alert')
               </div>
                 @yield('content')
               </div>

@@ -106,7 +106,12 @@
                             </div>
                         </div>
                         <div>
-                            <img src="{{ asset('img/dashboard/DCS2.png') }}">
+                            @if($data->image != null)
+                                <img src="{{ asset('img/image_web/'.$data->image) }}" style="width:100px; height:100px;">
+                            @else
+                                <img src="{{ asset('img/avatar-default.png') }}" style="width:100px; height:100px;">    
+                            @endif
+
                         </div>
                     </div>
                 </div>

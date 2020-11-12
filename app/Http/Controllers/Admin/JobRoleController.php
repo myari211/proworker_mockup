@@ -72,13 +72,13 @@ class JobRoleController extends Controller
     }
 
     public function specializations_update($id, Request $request){
-        $file = $request->file('image');
+        $file = $request->file('image-web');
         $file_name = $file->getClientOriginalName();
-        $request->file('image')->move('image_web/', $file_name);
+        $request->file('image-web')->move('img/image_web/', $file_name);
         
         
         
-        $special = Special::find($id);
+        $special = Specialization::find($id);
 
         $special->category_name = $request->category_name;
         $special->specialization_name = $request->specialization_name;
