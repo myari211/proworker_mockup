@@ -14,3 +14,15 @@ $(document).ready(function(){
         $(this).parents(".control-group").remove();
     });
 });
+
+function Register(){
+    window.location.assign('/register');
+}
+
+function Login(){
+    window.location.assign('/login');
+}
+
+function Redirect(){
+    window.location.assign('/signup');
+}

@@ -1,3 +1,83 @@
+@extends('master.layouts.app')
+@section('content')
+<div class="container">
+    <div class="row mt-4 d-flex justify-content-between">
+        <img src="{{ asset('img/logo.png') }}" style="width:200px;">
+        <div class="row d-flex align-items-center">
+            <p class="mt-3">Don't have an account ?</p>
+            <button type="button" class="btn blue-gradient btn-sm rounded-pill text-white" onclick="Redirect()">
+                Sign Up
+            </button>
+        </div>
+    </div>
+    <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-lg-6">
+            <div class="card rounded-0 z-depth-3 border-0">
+                <div class="card-body p-5">
+                    <div class="row d-flex justify-content-center">
+                        <h3><b>Welcome Back !</b></h3>
+                    </div>
+                    <div class="row mt-4 d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="md-form">
+                                <input type="email" class="form-control" name="user_email" id="email">
+                                <label><i class="fas fa-envelope mr-2"></i>Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="md-form">
+                                <input type="password" class="form-control" name="user_password" id="password">
+                                <label><i class="fas fa-lock mr-2"></i>Password</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn blue-gradient text-white btn-lg btn-block rounded-pill">
+                                Sign In
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 d-flex justify-content-center">
+        <small class="text-white"><b>- GIVE PROFESSIONAL WORKER A PERFECT VEHICLE TO WORK EVERYWHERE -</b></small>
+    </div>
+</div>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {{-- @extends('layouts.app')
 
 @section('content')
@@ -73,7 +153,7 @@
 @endsection --}}
 
 
-
+{{-- 
 
 <html>
     <head>
@@ -188,4 +268,4 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </body>
 </html>
-
+ --}}

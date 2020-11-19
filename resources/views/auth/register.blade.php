@@ -1,5 +1,68 @@
-
-
+@extends('master.layouts.app')
+@section('content')
+<div class="container">
+    <div class="row mt-4 d-flex justify-content-between">
+        <img src="{{ asset('img/logo.png') }}" style="width:200px;">
+        <div class="row d-flex align-items-center">
+            <p class="mt-3">Already have an account ?</p>
+            <button type="button" class="btn blue-gradient rounded-pill btn-sm" onclick="Login()">
+                Sign In
+            </button>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-lg-6">
+            <div class="card z-depth-3 border-0 rounded-0">
+                <div class="card-body p-5">
+                    <div class="row d-flex justify-content-center">
+                        <h3><b>Let's Go !</b></h3>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-lg-6">
+                            <div class="md-form">
+                                <input type="text" name="user_first_name" class="form-control">
+                                <label for="first_name"><i class="fas fa-user mr-2"></i>First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="md-form">
+                                <input type="text" name="user_last_name" class="form-control" id="last_name">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="md-form">
+                                <input type="text" name="user_email" class="form-control" id="email">
+                                <label for="email"><i class="fas fa-envelope mr-2"></i>Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="md-form">
+                                <input type="password" name="user_password" class="form-control" id="password">
+                                <label for="password"><i class="fas fa-lock mr-2"></i>Password</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn blue-gradient text-white btn-block btn-lg rounded-pill">
+                                Sign Up
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 d-flex justify-content-center">
+                <small class="text-white"><b>- GIVE PROFESSIONAL WORKER A PERFECT VEHICLE TO WORK EVERYWHERE -</b></small>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
 {{-- @extends('layouts.app')
 
