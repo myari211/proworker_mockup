@@ -19,4 +19,9 @@ class Work_experience extends Model
         "work_description"
     ];
 
+    protected $dates = [
+        'work_start_date',
+        'work_end_date'
+    ];
+
 }

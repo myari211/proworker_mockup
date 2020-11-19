@@ -47,17 +47,6 @@ class ProfileController extends Controller
         return redirect('/talent/dashboard');
     }
 
-    public function work($id){
-        $role = RoleJob::get();
-        $category = JobCategory::get();
-
-        $summaries_count = UserSummary::where('user_id', $id)->count();
-        $summaries = UserSummary::where('user_id', $id)->get();
-
-
-        return view('talent.edit_work', compact('role', 'category', 'summaries_count', 'summaries'));
-    }
-
     public function avatar($id, Request $request){
         $file = $request->file('user_avatar');
         $fileName = $file->getClientOriginalName();
@@ -91,6 +80,40 @@ class ProfileController extends Controller
         alert()->success('Complete', 'Your data has been recorded');
         return redirect('/talent/profile/'.$id);
 
+    }
+
+    public function update_education($id){
+
+        return view('talent.update_education');
+    }
+
+    public function skill_more($id, Request $request){
+        $skill = new Skills;
+        $skill->id = Uuid::uuid4()->toString();
+        $skill->skill_name = $request->skill;
+        $skill->level_id = $request->level;
+        $skill->user_id = $id;
+
+        $skill->save();
+
+        alert()->success('Complete', 'Your Skills Has Been Added');
+        return redirect()->to('/talent/profile/'.$id);
+    }
+
+    public function skill_delete(Request $request, $id){
+        $skill = Skills::find($id);
+        $skill->delete();
+
+
+        if(!$skill){
+            alert()->danger('Failed', 'Sorry, the proccess uncompleted');
+        }
+        else
+        {
+            alert()->success('Complete', 'Your Skill has been deleted');
+        }
+
+        return redirect()->to('/talent/profile/'.$request->primary);
     }
 
 

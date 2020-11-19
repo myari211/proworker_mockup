@@ -1,3 +1,6 @@
+
+
+
 {{-- @extends('layouts.app')
 
 @section('content')
@@ -83,7 +86,7 @@
 
 
 
-
+{{-- 
 
 <html>
     <head>
@@ -190,4 +193,6 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </body>
-</html>
+</html> --}}
+
+

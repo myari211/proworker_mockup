@@ -73,13 +73,9 @@
                     </button>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-success btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
-                        <i class="fas fa-comments"></i>
-                    </button>
-                    <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 shadow-0 rounded-0">
-                        <i class="fas fa-bell"></i>
-                    </button>
-                    <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 rounded-0 shadow-0" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  
+                  <a class="fas fa-bell text-white"></a>
+                    <button type="button" class="btn blue darken-3 btn-lg text-white pt-2 pb-2 pr-3 pl-3 rounded-0 shadow-0" data-toggle="modal" data-target="#account">
                         <i class="fas fa-user"></i>
                     </button>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -90,7 +86,35 @@
               </div>
                 @yield('content')
               </div>
+              <!-- To change the direction of the modal animation change .right class -->
+              <div class="modal fade right" id="account" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+              
+                <!-- Add class .modal-side and then add class .modal-top-right (or other classes from list above) to set a position to the modal -->
+                <div class="modal-dialog modal-side modal-top-right" role="document">
+              
+              
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
+        
+        {{-- modal --}}
+            
 
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

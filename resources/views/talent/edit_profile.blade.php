@@ -31,7 +31,8 @@
                         <div class="card-body">
                             @if($count_profile !== 0)
                                 @foreach($profile as $data)
-                                    <div class="row d-flex justify-content-end pr-4">
+                                    <div class="row d-flex justify-content-between align-items-center pl-1 pr-4">
+                                        <a class="fas fa-edit text-muted" style="opacity:0.5; margin-top:-40px" href="/talent/update_profile/{{ Auth::user()->id }}"></a>
                                         <h3>{{ $data->user_first_name }} {{ $data->user_last_name }}</h3>
                                     </div>
                                     <div class="row d-flex justify-content-center">
@@ -87,22 +88,6 @@
                                     @csrf
                                     <div class="row d-flex justify-content-end pr-4">
                                         <h3>Personal Info<span class="text-primary">rmation</span></h3>
-                                    </div>
-                                    <div class="row mt-4 d-flex justify-content-center">
-                                        <div class="col-lg-5">
-                                            <div class="md-form input-with-post-icon">
-                                                <i class="fas fa-user input-prefix"></i>
-                                                <input type="text" class="form-control" id="first_name" name="user_first_name">
-                                                <label for="first_name">First Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="md-form input-with-post-icon">
-                                                <i class="fas fa-user input-prefix"></i>
-                                                <input type="text" class="form-control" id="last_name" name="user_last_name">
-                                                <label for="last_name">Last Name</label>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-lg-10">
@@ -160,10 +145,10 @@
                 <div class="col-lg-12">
                     <div class="card rounded-0 shadow border-0">
                         <div class="card-body">
-                            <div class="row d-flex justify-content-end pr-4">
-                                <h3>Educa<span class="text-primary">tion</span></h3>
-                            </div>
                             @if($education_count === 0)
+                                <div class="row d-flex justify-content-end align-items-center pl-1 pr-4">
+                                    <h3>Educa<span class="text-primary">tion</span></h3>
+                                </div>
                                 <form method="post" action="/talent/education/{{ Auth::user()->id }}">
                                     @csrf
                                     <div class="row mt-4 d-flex justify-content-center">
@@ -226,6 +211,10 @@
                                     </div>
                                 </form>
                             @else
+                                <div class="row d-flex justify-content-between align-items-center pl-1 pr-4">
+                                    <a class="fas fa-edit text-muted" href="/talent/update_education/{{ Auth::user()->id }}" style="margin-top:-40px; opacity:0.5"></a>
+                                    <h3>Educa<span class="text-primary">tion</span></h3>
+                                </div>
                                 @foreach($education as $data)
                                     <div class="row mt-4 d-flex justify-content-center">
                                         <div class="col-lg-5">
@@ -312,14 +301,18 @@
                                     </div>
                                 </form>
                             @else
-                                <div class="row d-flex justify-content-end pr-4">
+                                <div class="row d-flex justify-content-between align-items-center pl-1 pr-4">
+                                    <a class="fas fa-plus text-muted" style="margin-top:-40px; opacity:0.5" data-toggle="modal" data-target="#skillAdd"></a>
                                     <h3>Skil<span class="text-primary">ls</span></h3>
                                 </div>
                                 <div class="row mt-4 d-flex justify-content-center">
                                     <div class="col-lg-10">
                                         <ul>
                                             @foreach($skill as $data)
-                                                <li>{{ $data->skill_name }} - {{ $data->level_name }}</li>
+                                                <li class="d-flex justify-content-between">
+                                                    {{ $data->skill_name }} - {{ $data->level_name }}
+                                                    <a class="fas fa-times text-muted" style="opacity:0.2" data-toggle="modal" data-target="#delete-skills{{ $data->primary }}"></a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -430,4 +423,84 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- modal -->
+
+<div class="modal fade" id="skillAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form method="post" action="/talent/skills_more/{{ Auth::user()->id }}">
+                    @csrf
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10 d-flex justify-content-between">
+                            <h4>Add Ski<span class="text-primary">lls</span></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mt-4 d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="md-form input-with-post-icon">
+                                <i class="fas fa-user-tie input-prefix"></i>
+                                <input type="text" name="skill" id="skill" class="form-control">
+                                <label for="skill">Skills</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <label for="level">Level</label>
+                            <select name="level" class="form-control" id="level">
+                                @foreach($level as $data)
+                                    <option value="{{ $data->id }}">{{ $data->level_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-4 d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <button type="submit" class="btn btn-primary btn-md border-0 shadow btn-block">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach($skill as $data)
+<div class="modal fade" id="delete-skills{{ $data->primary }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="modal-title w-100 text-white" id="myModalLabel">Are You Sure Wanna Delete This ?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/talent/skills_delete/{{ $data->primary }}">
+                    @csrf
+                    <input type="hidden" name="primary" value={{ Auth::user()->id }}>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <h5>Skills : {{ $data->skill_name }}</h5>
+                            <h5>Level : {{ $data->level_name }}</h5>
+                        </div>
+                    </div>
+                    <div class="row mt-4 d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <button type="submit" class="btn btn-danger btn-md btn-block">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 @endsection

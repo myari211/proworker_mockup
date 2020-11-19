@@ -14,7 +14,7 @@ class CreateWorkExperiencesTable extends Migration
     public function up()
     {
         Schema::create('work_experiences', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('id')->primary();
             $table->string('user_id');
             $table->string('job_role_id');
             $table->string('job_category_id');
@@ -23,7 +23,7 @@ class CreateWorkExperiencesTable extends Migration
             $table->string('work_duration');
             $table->date('work_start_date')->nullable();
             $table->date('work_end_date')->nullable();
-            $table->date('work_description')->nullable();
+            $table->string('work_description')->nullable();
             $table->timestamps();
         });
 
