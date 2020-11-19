@@ -23,6 +23,8 @@ class UserSeeder extends Seeder
         
         $talent = User::create([
             'id' => Uuid::uuid4()->tostring(),
+            'user_first_name' => 'Ari',
+            'user_last_name' => 'Pratama',
             'email' => 'apputra16@gmail.com',
             'password' => bcrypt('dimas2011')
         ]);
