@@ -33,7 +33,7 @@
                                 @foreach($profile as $data)
                                     <div class="row d-flex justify-content-between align-items-center pl-1 pr-4">
                                         <a class="fas fa-edit text-muted" style="opacity:0.5; margin-top:-40px" href="/talent/update_profile/{{ Auth::user()->id }}"></a>
-                                        <h3>{{ $data->user_first_name }} {{ $data->user_last_name }}</h3>
+                                        <h3>{{ Auth::user()->user_first_name }} {{ Auth::user()->user_last_name }}</h3>
                                     </div>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-lg-5">
