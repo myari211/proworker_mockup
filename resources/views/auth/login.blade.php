@@ -17,29 +17,32 @@
                     <div class="row d-flex justify-content-center">
                         <h3><b>Welcome Back !</b></h3>
                     </div>
-                    <div class="row mt-4 d-flex justify-content-center">
-                        <div class="col-lg-12">
-                            <div class="md-form">
-                                <input type="email" class="form-control" name="user_email" id="email">
-                                <label><i class="fas fa-envelope mr-2"></i>Email</label>
+                    <form method="post" action="{{ route('login') }}">
+                        @csrf
+                        <div class="row mt-4 d-flex justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="md-form">
+                                    <input type="email" class="form-control" name="email" id="email">
+                                    <label><i class="fas fa-envelope mr-2"></i>Email</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-lg-12">
-                            <div class="md-form">
-                                <input type="password" class="form-control" name="user_password" id="password">
-                                <label><i class="fas fa-lock mr-2"></i>Password</label>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="md-form">
+                                    <input type="password" class="form-control" name="password" id="password">
+                                    <label><i class="fas fa-lock mr-2"></i>Password</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-lg-12">
-                            <button type="submit" class="btn blue-gradient text-white btn-lg btn-block rounded-pill">
-                                Sign In
-                            </button>
+                        <div class="row mt-5">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn blue-gradient text-white btn-lg btn-block rounded-pill">
+                                    Sign In
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
