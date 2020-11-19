@@ -10,50 +10,77 @@
             </button>
         </div>
     </div>
-    <div class="row d-flex justify-content-center mt-5">
+    <div class="row d-flex justify-content-center mt-3">
         <div class="col-lg-6">
             <div class="card z-depth-3 border-0 rounded-0">
                 <div class="card-body p-5">
                     <div class="row d-flex justify-content-center">
                         <h3><b>Let's Go !</b></h3>
                     </div>
-                    <div class="row mt-4">
-                        <div class="col-lg-6">
-                            <div class="md-form">
-                                <input type="text" name="user_first_name" class="form-control">
-                                <label for="first_name"><i class="fas fa-user mr-2"></i>First Name</label>
+                    <form method="post" action="{{ route('register') }}">
+                        @csrf
+                        <div class="row mt-4">
+                            <div class="col-lg-6">
+                                <div class="md-form">
+                                    <input type="text" name="user_first_name" class="form-control" id="first_name">
+                                    <label for="first_name"><i class="fas fa-user mr-2"></i>First Name</label>
+                                    @if ($errors->has('user_first_name'))
+                                        <span class="text-danger">{{ $errors->first('user_first_name') }}</span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="md-form">
+                                    <input type="text" name="user_last_name" class="form-control" id="last_name">
+                                    <label for="last_name">Last Name</label>
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="md-form">
-                                <input type="text" name="user_last_name" class="form-control" id="last_name">
-                                <label for="last_name">Last Name</label>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="md-form">
+                                    <input type="text" name="email" class="form-control" id="email">
+                                    <label for="email"><i class="fas fa-envelope mr-2"></i>Email</label>
+                                    @if ($errors->has('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="md-form">
-                                <input type="text" name="user_email" class="form-control" id="email">
-                                <label for="email"><i class="fas fa-envelope mr-2"></i>Email</label>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="md-form">
+                                    <input type="password" name="password" class="form-control" id="password">
+                                    <label for="password"><i class="fas fa-lock mr-2"></i>Password</label>
+                                    @if ($errors->has('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="md-form">
-                                <input type="password" name="user_password" class="form-control" id="password">
-                                <label for="password"><i class="fas fa-lock mr-2"></i>Password</label>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="md-form {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                    <input type="password" class="form-control" name="password_confirmation">
+                                    <label for="password"><i class="fas fa-lock mr-2"></i>Confirm Password</label>
+                                </div>
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                @endif
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-lg-12">
-                            <button type="submit" class="btn blue-gradient text-white btn-block btn-lg rounded-pill">
-                                Sign Up
-                            </button>
+
+                        <div class="row mt-5">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn blue-gradient text-white btn-block btn-lg rounded-pill">
+                                    Sign Up
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="row mt-5 d-flex justify-content-center">
