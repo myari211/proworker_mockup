@@ -56,8 +56,8 @@ class ProfileController extends Controller
             'user_avatar'=> $fileName,
         ]);
         
-        alert()->success('Complete', 'Your Avatar Has Been Changed');
-        return redirect('/talent/dashboard');
+        toast()->success('Your Avatar Has Been Changed');
+        return redirect('/talent/profile/'.$id);
     }
 
     public function education($id, Request $request) {

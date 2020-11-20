@@ -91,22 +91,32 @@
                 aria-hidden="true">
               
                 <!-- Add class .modal-side and then add class .modal-top-right (or other classes from list above) to set a position to the modal -->
-                <div class="modal-dialog modal-side modal-top-right" role="document">
-              
-              
+                <div class="modal-dialog modal-side modal-top-right modal-sm" role="document">
                   <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
                     <div class="modal-body">
-                      ...
+                      <div class="container">
+                        <div class="row d-flex justify-content-center align-items-center">
+                          <div class="col-lg-4">
+                            @if(Auth::user()->user_avatar == null)
+                              <img src="{{ asset('img/avatar-default.png') }}" style="width:75px; height:75px;">
+                            @else
+                            @endif
+                          </div>
+                          <div class="col-lg-8">
+                            <div class="row d-flex justify-content-end">
+                              <h5>{{ ucfirst(trans(Auth::user()->user_first_name)) }} {{ ucfirst(trans(Auth::user()->user_last_name)) }}</h5>
+                            </div>
+                            <div class="row d-flex justify-content-end">
+                              <button type="button" class="btn btn-sm btn-outline-primary mr-0 rouned-pill">
+                                Look Profile
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-danger btn-sm btn-block" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</button>
                     </div>
                   </div>
                 </div>

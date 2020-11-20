@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
     public function skills(){
-        return $this->belongsToMany('App\Skills');
+        return $this->hasMany('App\Skills');
     }
 
     public function UserInformation(){
