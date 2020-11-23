@@ -16,8 +16,8 @@ class CreateUserAddressesTable extends Migration
         Schema::create('user_address', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('country');
-            $table->unsignedInteger('province');
-            $table->unsignedInteger('city');
+            $table->unsignedInteger('province_id');
+            $table->unsignedInteger('city_id');
             $table->string('street_address');
             $table->string('postal');
             $table->string('user_id');
@@ -26,8 +26,8 @@ class CreateUserAddressesTable extends Migration
 
         Schema::table('user_address', function ($table){
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('province')->references('id')->on('provinces');
-            $table->foreign('city')->references('id')->on('cities');
+            $table->foreign('province_id')->references('id')->on('provinces');
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
