@@ -63,7 +63,6 @@ class TalentController extends Controller
         $profile = DB::table('user_information')->where('user_id', $id)->update([
             'user_first_name' => $request->user_first_name,
             'user_last_name' => $request->user_last_name,
-            'user_address' => $request->user_address,
             'user_telephone' => $request->user_telephone,
             'user_birth_date' => $request->user_birth_date,
             'user_gender' => $request->user_gender,

@@ -51,10 +51,7 @@
                                     </div>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-lg-5">
-                                            <p class="text-muted">
-                                                <i class="fas fa-map-marked-alt"></i>
-                                                {{ $data->user_address }}
-                                            </p>
+
                                         </div>
                                         <div class="col-lg-5">
                                             <p class="text-muted">
@@ -89,12 +86,21 @@
                                     <div class="row d-flex justify-content-end pr-4">
                                         <h3>Personal Info<span class="text-primary">rmation</span></h3>
                                     </div>
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="col-lg-10">
-                                            <div class="md-form input-with-post-icon">
-                                                <i class="fas fa-map-marked-alt input-prefix"></i>
-                                                <input type="text" class="form-control" id="address" name="user_address">
-                                                <label for="address">Address</label>
+                                    <div class="row d-flex justify-content-center mt-4">
+                                        <div class="col-lg-5 pl-4">
+                                            <div class="row pl-2">
+                                                <h6>First Name</h6>
+                                            </div>
+                                            <div class="row pl-2">
+                                                <h4>{{ Auth::user()->user_first_name }}</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 pl-4">
+                                            <div class="row pl-2">
+                                                <h6>Last Name</h6>
+                                            </div>
+                                            <div class="row pl-2">
+                                                <h4>{{ Auth::user()->user_last_name }}</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -137,6 +143,55 @@
                                     </div>
                                 </form>
                             @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <div class="card shadow rounded-0 border-0">
+                        <div class="card-body">
+                            <div class="row d-flex justify-content-end pr-4">
+                                <h3>Addr<span class="text-primary">ess</span></h3>
+                            </div>
+                            <div class="row mt-4 d-flex justify-content-center">
+                                <div class="col-lg-10">
+                                    <label for="country">Country</label>
+                                    <select name="country" class="form-control" id="country">
+                                        <option value="indonesia">Indonesia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center mt-4">
+                                <div class="col-lg-5">
+                                    <label for="province">Province</label>
+                                    <select name="province" class="form-control" id="province">
+                                        <option value="jawa_barat">Jawa Barat</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-5">
+                                    <label for="city">City</label>
+                                    <select name="city" class="form-control" id="city">
+                                        <option value="Bandung">Bandung</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="md-form input-with-post-icon">
+                                        <i class="fas fa-map-marker-alt input-prefix"></i>
+                                        <input type="text" name="address_street" class="form-control" id="street">
+                                        <label for="street">Street Address</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4 d-flex justify-content-center">
+                                <div class="col-lg-10">
+                                    <button type="submit" class="btn btn-primary border-0 shadow btn-md btn-block">
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

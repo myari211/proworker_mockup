@@ -21,7 +21,6 @@ class ProfileController extends Controller
         $personal = new UserInformation;
         $personal->id = Uuid::uuid4()->getHex();
         $personal->user_id = $id;
-        $personal->user_address = $request->user_address;
         $personal->user_telephone = $request->user_telephone;
         $personal->user_birth_date = $request->user_birth_date;
         $personal->user_gender = $request->user_gender;
