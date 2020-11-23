@@ -48,6 +48,8 @@ Route::middleware('role:talent')->group(function(){
     Route::get('/talent/dashboard', 'Talent\TalentController@index')->name('user.page');;
     Route::get('/talent/profile/{id}', 'Talent\TalentController@profile');
 
+    Route::post('/talent/profile/address/{id}', 'Talent\ProfileController@address');
+
     Route::get('/talent/update_profile/{id}', 'Talent\TalentController@update_profile');
     Route::post('/talent/update_profile/update/{id}', 'Talent\TalentController@profile_proccess');
 
@@ -72,6 +74,8 @@ Route::middleware('role:talent')->group(function(){
     Route::post('/talent/skills/{id}', 'Talent\ProfileController@skills');
     Route::post('/talent/skills_more/{id}', 'Talent\ProfileController@skill_more');
     Route::post('/talent/skills_delete/{id}', 'Talent\ProfileController@skill_delete');
+
+
 });
 
 Route::get('/signup', function(){
@@ -84,6 +88,8 @@ Route::get('/tes/{id}', 'Talent\TalentController@tes');
 //social Auth
 Route::get('/auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
 Route::get('/auth/{provider}/callback', 'Auth\SocialiteController@handleProvideCallback');
+
+
 
 
 

@@ -140,5 +140,27 @@ class ProfileController extends Controller
         return redirect('/talent/profile/'.$id);
     }
 
+    public function address($id, Request $request){
+        $user_address = DB::table('user_address')->insert([
+            'id' => Uuid::uuid4()->toString(),
+            'country' => $request->country,
+            'province' => $request->province,
+            'city' => $request->city,
+            'street_address' => $request->address_street,
+            'postal' => $request->postal,
+            'user_id' => $id,
+        ]);
+
+        if(!$user_address){
+            alert()->danger('Failed');
+        }
+        else
+        {
+            alert()->success('Complete', 'Your Data Has Been Recorded');
+        }
+
+        return redirect('/talent/profile/'.$id);
+    }
+
 
 }

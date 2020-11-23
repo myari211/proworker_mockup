@@ -1,3 +1,5 @@
+// const { Dropdown } = require("bootstrap");
+
 $(document).ready(function(){
     $(".preloader").fadeOut();
 })
@@ -26,3 +28,4 @@ function Login(){
 function Redirect(){
     window.location.assign('/signup');
 }
+

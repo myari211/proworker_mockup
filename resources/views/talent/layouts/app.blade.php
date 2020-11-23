@@ -141,6 +141,8 @@
                     e.preventDefault();
                     $("#wrapper").toggleClass("toggled");
                 });
+
+                @yield('script')
         </script>
 
         @yield('javascript')

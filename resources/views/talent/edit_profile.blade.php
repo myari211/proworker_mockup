@@ -151,47 +151,94 @@
                 <div class="col-lg-12">
                     <div class="card shadow rounded-0 border-0">
                         <div class="card-body">
+                            @if($address_count < 1)
                             <div class="row d-flex justify-content-end pr-4">
                                 <h3>Addr<span class="text-primary">ess</span></h3>
                             </div>
-                            <div class="row mt-4 d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <label for="country">Country</label>
-                                    <select name="country" class="form-control" id="country">
-                                        <option value="indonesia">Indonesia</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center mt-4">
-                                <div class="col-lg-5">
-                                    <label for="province">Province</label>
-                                    <select name="province" class="form-control" id="province">
-                                        <option value="jawa_barat">Jawa Barat</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-5">
-                                    <label for="city">City</label>
-                                    <select name="city" class="form-control" id="city">
-                                        <option value="Bandung">Bandung</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <div class="md-form input-with-post-icon">
-                                        <i class="fas fa-map-marker-alt input-prefix"></i>
-                                        <input type="text" name="address_street" class="form-control" id="street">
-                                        <label for="street">Street Address</label>
+                            <form method="post" action="/talent/profile/address/{{ Auth::user()->id }}">
+                                @csrf
+                                <div class="row mt-4 d-flex justify-content-center">
+                                    <div class="col-lg-10">
+                                        <label for="country">Country</label>
+                                        <select name="country" class="form-control" id="country">
+                                            <option value="indonesia">Indonesia</option>
+                                        </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mt-4 d-flex justify-content-center">
-                                <div class="col-lg-10">
-                                    <button type="submit" class="btn btn-primary border-0 shadow btn-md btn-block">
-                                        Save
-                                    </button>
+                                <div class="row d-flex justify-content-center mt-4">
+                                    <div class="col-lg-5">
+                                        <label for="province">Province</label>
+                                        <select name="province" class="form-control" id="province">
+                                            @foreach($provinces as $id => $name)
+                                                <option value="{{ $id }}">{{ $name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <label for="city">City</label>
+                                        <select name="city" class="form-control" id="city">
+                                            <option value="3273">Bandung</option>
+                                            <option value="3211">Sumedang</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-6">
+                                        <div class="md-form input-with-post-icon">
+                                            <i class="fas fa-map-marker-alt input-prefix"></i>
+                                            <input type="text" name="address_street" class="form-control" id="street" required>
+                                            <label for="street">Street Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="md-form">
+                                            <input type="text" class="form-control" name="postal" id="postal" required>
+                                            <label for="postal">Zip Code</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 d-flex justify-content-center">
+                                    <div class="col-lg-10">
+                                        <button type="submit" class="btn btn-primary border-0 shadow btn-md btn-block">
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            @else
+                                @foreach($address as $data)
+                                    <div class="row d-flex justify-content-between align-items-center pl-1 pr-4">
+                                        <a class="fas fa-edit text-muted" style="margin-top:-40px; opacity:0.5" data-toggle="modal" data-target="#edit_address"></a>
+                                        <h3>Addr<span class="text-primary">ess</span></h3>
+                                    </div>
+                                    <div class="row mt-4 d-flex justify-content-center">
+                                        <div class="col-lg-5">
+                                            <label class="text-muted">Country</label>
+                                            <h5>{{ ucfirst($data->country) }}</h5>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <label class="text-muted">Province</label>
+                                            <h5>{{ ucfirst(strtolower($data->province)) }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 d-flex justify-content-center">
+                                        <div class="col-lg-5">
+                                            <label class="text-muted">City</label>
+                                            <h5>{{ ucwords(strtolower($data->city)) }}</h5>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <label class="text-muted">Street Address</label>
+                                            <h5>{{ $data->street_address }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 d-flex justify-content-center">
+                                        <div class="col-lg-10">
+                                            <label class="text-muted">Zip Code</label>
+                                            <h5>{{ $data->postal }}</h5>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -558,4 +605,92 @@
     </div>
 </div>
 @endforeach
+
+
+@foreach($address as $data)
+<div class="modal fade" id="edit_address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h4 class="modal-title w-100 text-white" id="myModalLabel">Update Address</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="">
+                    @csrf
+                    <input type="hidden" name="primary" value={{ Auth::user()->id }}>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="country">Country</label>
+                                    <select name="country" class="form-control" id="country">
+                                        <option value="indonesia">Indonesia</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="province">Province</label>
+                                    <select name="province" class="form-control" id="province">
+                                        @foreach($provinces as $id => $name)
+                                            <option value="{{ $id }}">{{ $name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg-12">
+                                    <label for="city">City</label>
+                                    <select name="city" class="form-control" id="city">
+                                        @foreach($city as $id => $name)
+                                            <option value="{{ $id }}">{{ $name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg-12">
+                                    <div class="md-form">
+                                        <label for="address">Street Address</label>
+                                        <input type="text" name="address_street" class="form-control" id="address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4 d-flex justify-content-center">
+                        <div class="col-lg-10">
+                            <button type="submit" class="btn btn-primary btn-md btn-block">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
 @endsection
+{{-- @section('script')
+        $(function () {
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+            });
+
+            $('#province').on('change', function () {
+                $.ajax({
+                    url: '{{ route('city.store') }}',
+                    method: 'POST',
+                    data: {id: $(this).val()},
+                    success: function(response) {
+                        $('#city').empty();
+
+                        $.each(response, function(id, name) {
+                            $('#city').append(new Option(name, id))
+                        })
+                    }
+                })
+            });
+        });
+@endsection --}}

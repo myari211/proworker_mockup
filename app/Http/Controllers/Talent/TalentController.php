@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Talent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use Laravolt\Indonesia\Models\Province;
+use Laravolt\Indonesia\Models\City;
+
 use App\UserInformation;
 use App\UserSummary;
 use App\JobCategory;
@@ -13,6 +17,7 @@ use App\Avatar;
 use App\Education;
 use App\Level;
 use App\Skills;
+use App\user_address;
 
 class TalentController extends Controller
 {
@@ -24,7 +29,17 @@ class TalentController extends Controller
         return view('talent.dashboard');
     }
 
-    public function profile($id){
+    public function profile($id, Request $request){
+
+        $address_count = DB::table('user_address')->where('user_id', $id)->count();
+        $address = DB::table('user_address')->where('user_id', $id)
+                        ->join('provinces', 'user_address.province', '=', 'provinces.id')
+                        ->join('cities', 'user_address.city', '=', 'cities.id')
+                        ->select('*', 'user_address.id as address_id', 'provinces.name as province', 'cities.name as city')
+                        ->get();
+
+        $city = City::pluck('name', 'id');
+        $provinces = Province::pluck('name', 'id');
 
         $count_profile = DB::table('user_information')->where('user_id', $id)->count();
         $profile = DB::table('user_information')->where('user_id', $id)->get();
@@ -49,7 +64,16 @@ class TalentController extends Controller
         $avatar = DB::table('avatar')->join('users', 'users.id', '=', 'avatar.user_id')->count();
         $image = DB::table('avatar')->where('user_id', $id)->get();
 
-        return view('talent.edit_profile', compact('skill', 'skill_count', 'education', 'education_count', 'level', 'image', 'avatar', 'user', 'profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
+        
+
+        return view('talent.edit_profile', compact('city', 'address', 'address_count', 'provinces', 'skill', 'skill_count', 'education', 'education_count', 'level', 'image', 'avatar', 'user', 'profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
+    }
+
+    public function city_store(Request $request){
+        $cities = City::where('province_id', $request->input('id'))
+        ->pluck('name');
+        
+        return response()->json($cities);
     }
 
     public function update_profile($id){
