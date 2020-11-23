@@ -19,7 +19,7 @@ class CreateUserAddressesTable extends Migration
             $table->string('province');
             $table->string('city');
             $table->string('street_address');
-            $table->unsignedBigInteger('postal');
+            $table->string('postal');
             $table->string('user_id');
             $table->timestamps();
         });
