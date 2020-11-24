@@ -90,6 +90,9 @@ Route::get('/auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
 Route::get('/auth/{provider}/callback', 'Auth\SocialiteController@handleProvideCallback');
 
 
+Route::get('dependent-dropdown', 'Talent\TalentController@city_store')->name('city.store');
+
+
 
 
 

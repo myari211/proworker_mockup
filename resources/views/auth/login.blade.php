@@ -1,54 +1,97 @@
 @extends('master.layouts.app')
 @section('content')
-<div class="container">
-    <div class="row mt-4 d-flex justify-content-between">
-        <img src="{{ asset('img/logo.png') }}" style="width:200px;">
-        <div class="row d-flex align-items-center">
-            <p class="mt-3">Don't have an account ?</p>
-            <button type="button" class="btn blue-gradient btn-sm rounded-pill text-white" onclick="Redirect()">
-                Sign Up
-            </button>
+<div class="d-none d-lg-block">
+    <div class="container">
+        <div class="row mt-4 d-flex justify-content-between">
+            <img src="{{ asset('img/logo.png') }}" style="width:200px;">
+            <div class="row d-flex align-items-center">
+                <p class="mt-3">Don't have an account ?</p>
+                <button type="button" class="btn blue-gradient btn-sm rounded-pill text-white" onclick="Redirect()">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+        <div class="row mt-5 d-flex justify-content-center">
+            <div class="col-lg-6">
+                <div class="card rounded-0 z-depth-3 border-0">
+                    <div class="card-body p-5">
+                        <div class="row d-flex justify-content-center">
+                            <h3><b>Welcome Back !</b></h3>
+                        </div>
+                        <form method="post" action="{{ route('login') }}">
+                            @csrf
+                            <div class="row mt-4 d-flex justify-content-center">
+                                <div class="col-lg-12">
+                                    <div class="md-form">
+                                        <input type="email" class="form-control" name="email" id="email">
+                                        <label><i class="fas fa-envelope mr-2"></i>Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-12">
+                                    <div class="md-form">
+                                        <input type="password" class="form-control" name="password" id="password">
+                                        <label><i class="fas fa-lock mr-2"></i>Password</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn blue-gradient text-white btn-lg btn-block rounded-pill">
+                                        Sign In
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 d-flex justify-content-center">
+            <small class="text-white"><b>- GIVE PROFESSIONAL WORKER A PERFECT VEHICLE TO WORK EVERYWHERE -</b></small>
         </div>
     </div>
-    <div class="row mt-5 d-flex justify-content-center">
-        <div class="col-lg-6">
-            <div class="card rounded-0 z-depth-3 border-0">
-                <div class="card-body p-5">
-                    <div class="row d-flex justify-content-center">
-                        <h3><b>Welcome Back !</b></h3>
-                    </div>
-                    <form method="post" action="{{ route('login') }}">
-                        @csrf
-                        <div class="row mt-4 d-flex justify-content-center">
-                            <div class="col-lg-12">
+</div>
+<div class="d-block d-md-none">
+    <div class="container">
+        <div class="row" style="margin-top:180px;">
+            <div class="col-md-10">
+                <div class="card rounded-0 border-0 z-depth-2">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <img src="{{ asset('img/logo.png') }}" style="width:200px;">
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-10">
                                 <div class="md-form">
-                                    <input type="email" class="form-control" name="email" id="email">
-                                    <label><i class="fas fa-envelope mr-2"></i>Email</label>
+                                    <label for="email"><i class="fas fa-envelope mr-2"></i>Email</label>
+                                    <input name="email" type="email" class="form-control" id="email">
                                 </div>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center">
-                            <div class="col-lg-12">
+                            <div class="col-10">
                                 <div class="md-form">
-                                    <input type="password" class="form-control" name="password" id="password">
-                                    <label><i class="fas fa-lock mr-2"></i>Password</label>
+                                    <label for="password"><i class="fas fa-lock mr-2"></i>Password</label>
+                                    <input type="password" name="password" class="form-control" id="password">
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-5">
-                            <div class="col-lg-12">
-                                <button type="submit" class="btn blue-gradient text-white btn-lg btn-block rounded-pill">
+                        <div class="row mt-4 d-flex justify-content-center">
+                            <div class="col-10">
+                                <button type="submit" class="btn blue-gradient rounded-pill btn-block">
                                     Sign In
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-5 d-flex justify-content-center">
-        <small class="text-white"><b>- GIVE PROFESSIONAL WORKER A PERFECT VEHICLE TO WORK EVERYWHERE -</b></small>
+        <div class="row mt-4 d-flex justify-content-center">
+            <small class="text-white text-center"><b>GIVE PROFESSIONAL WORKER A<br /> PERFECT VEHICLE TO WORK EVERYWHERE</b></small>
+        </div>
     </div>
 </div>
 @endsection

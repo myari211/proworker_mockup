@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" name="viewport" scale="0.1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pro Worker | Bring Profesional Worker Cross Nations</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -141,8 +141,6 @@
                     e.preventDefault();
                     $("#wrapper").toggleClass("toggled");
                 });
-
-                @yield('script')
         </script>
 
         @yield('javascript')

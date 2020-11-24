@@ -1,7 +1,6 @@
-
 <html>
     <head>
-        <meta charset="utf-8" name="viewport" scale="0.1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pro Worker | Bring Profesional Worker Cross Nations</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
@@ -12,7 +11,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
-    <body style="background-image:url('{{ asset('img/login.png') }}'); background-repeat:no-repeat; background-size:100% 100%">
+    <body style="background-image:url('{{ asset('img/login.png') }}'); background-repeat:no-repeat; background-size:100% 100%" class="d-none d-lg-block">
         @yield('content')
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->

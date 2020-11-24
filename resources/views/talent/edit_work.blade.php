@@ -140,7 +140,10 @@
                             </div>
                         </form>
                     @else
-                        <div class="row d-flex justify-content-end pr-4">
+                        <div class="row d-flex justify-content-between pr-4 pl-3">
+                            <button type="button" class="btn btn-primary rounded-pill" data-toggle="modal" data-target="#addWork">
+                                <i class="fas fa-plus"></i>
+                            </button>
                             <h3>Work Experi<span class="text-primary">ence</span></h3>
                         </div>
                         <div class="row d-flex justify-content-center">
@@ -158,7 +161,13 @@
                                             <p>{{ $data->job_categories }}</p>
                                         </div>
                                         <div class="row mb-4">
-                                            <span class="badge badge-primary p-2 rounded-0 border-0 shadow">{{ $data->work_duration }} Years</span>
+                                            <span class="badge badge-primary p-2 rounded-0 border-0 shadow">
+                                                @if($data->work_duration == 0)
+                                                    Less than 1 Years
+                                                @else
+                                                    {{ $data->work_duration }} Years
+                                                @endif
+                                            </span>
                                         </div>
                                     </div>
                                     <div>
@@ -355,7 +364,70 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <label>Duration</label>
-                        <h5>{{ $data->work_duration }} Years</label>
+                        @if($data->work_duration === 0)
+                            <h5>> 1 Years</label>
+                        @else
+                            <h5>{{ $data->work_duration }}</h5>
+                        @endif
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col-lg-12">
+                        <form method="post" action="/talent/profile/delete_work/{{ $data->primary }}" id="delete_work">
+                            @csrf
+                            <input type="hidden" name="primary" value="{{ Auth::user()->id }}">
+                            <button type="submit" class="btn btn-danger btn-md btn-block border-0 shadow d-flex justify-content-between">
+                                Delete
+                                <span class="fas fa-trash"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addWork" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12  d-flex justify-content-between">
+                        <h5 class="modal-title" id="exampleModalLabel">Are You Sure To Delete This ?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <label>Company</label>
+                        <h5>{{ $data->work_company_name }}</h5>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Category</label>
+                        <h5>{{ $data->job_categories }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label>Specialization</label>
+                        <h5>{{ $data->work_specialization }}</h5>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Role</label>
+                        <h5>{{ $data->work_specialization}} {{ $data->job_role_name }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label>Duration</label>
+                        @if($data->work_duration === 0)
+                            <h5>> 1 Years</label>
+                        @else
+                            <h5>{{ $data->work_duration }}</h5>
+                        @endif
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center mt-5">
