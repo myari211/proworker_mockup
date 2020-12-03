@@ -543,11 +543,95 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
-                                    <i class="fas fa-bolt" style="font-size:80px;"></i>
+                                    <i class="fas fa-bolt text-primary" style="font-size:80px;"></i>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                
+                            <div class="card-footer bg-primary d-flex justify-content-center">
+                                <h4 class="text-white">System Integrator</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <i class="fas fa-th yellow-font" style="font-size:80px;"></i>
+                                </div>
+                            </div>
+                            <div class="card-footer yellow-bg d-flex justify-content-center">
+                                <h4 class="text-white">Control System Process</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <i class="fas fa-network-wired green-font" style="font-size:80px;"></i>
+                                </div>
+                            </div>
+                            <div class="card-footer green-bg d-flex justify-content-center">
+                                <h4 class="text-white">Safety Instrument System</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <i class="fas fa-industry purple-font" style="font-size:80px;"></i>
+                                </div>
+                            </div>
+                            <div class="card-footer purple-bg d-flex justify-content-center">
+                                <h4 class="text-white">Scada System</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <i class="fas fa-fire-extinguisher red-font" style="font-size:80px;"></i>
+                                </div>
+                            </div>
+                            <div class="card-footer red-bg d-flex justify-content-center">
+                                <h4 class="text-white">Fire & Gas System</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <i class="fab fa-stumbleupon teal-font" style="font-size:80px;"></i>
+                                </div>
+                            </div>
+                            <div class="card-footer teal-bg d-flex justify-content-center">
+                                <h4 class="text-white">Metering Package</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <i class="fas fa-broadcast-tower lime-font" style="font-size:80px;"></i>
+                                </div>
+                            </div>
+                            <div class="card-footer lime-bg d-flex justify-content-center">
+                                <h4 class="text-white">Metering Package</h4>
                             </div>
                         </div>
                     </div>
