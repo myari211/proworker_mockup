@@ -15,45 +15,6 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary z-depth-0">
-            <div class="collapse navbar-collapse d-flex justify-content-between" id="basicExampleNav">
-                <a class="navbar-brand">
-                    <img src="{{ asset('img/logopro2.png') }}">
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ml-4">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item ml-4">
-                        <a class="nav-link" href="#">Find Jobs</a>
-                    </li>
-                    <li class="nav-item ml-4">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                </ul>
-                <div class="row pr-4 d-flex align-items-center">
-                    <i class="fas fa-bell mr-3 text-white"></i>
-                    <small class="mr-5 text-white">{{ Auth::user()->user_first_name }} {{ Auth::user()->user_last_name}}</small>
-                    <a data-toggle="modal" data-target="#account">
-                        <div class="view overlay rounded-circle">
-                            @if(Auth::user()->avatar == null)
-                                <img src="{{ asset('img/avatar-default.png') }}" style="width:40px;" class="img-fluid rounded-circle" data-toggle="modal" data-target="#account">
-                            @else
-                                <img src="{{ asset('img/'. Auth::user()->avatar) }}" data-toggle="modal" data-target="#account">
-                            @endif
-                            <div class="mask flex-center rgba-white-strong">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </nav>
-
     <div class="preloader">
         <div class="loading">
             <div class="spinner-grow text-primary" role="status">
@@ -70,7 +31,6 @@
             </div>
         </div>
     </div>
-        
     @include('sweetalert::alert')          
     @yield('content')
 
@@ -93,13 +53,6 @@
                     <div class="row mt-4">
                         <div class="col-lg-12 d-flex justify-content-center">
                             <h4>{{ Auth::user()->user_first_name }} {{ Auth::user()->user_last_name }}</h4>
-                        </div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-lg-12 p-0">
-                            <a href="/talent/profile/{{ Auth::user()->id }}" class="nav-link list-profile">
-                                <span class="text-muted"><i class="fas fa-user mr-3"></i>Profile</span>
-                            </a>
                         </div>
                     </div>
                     <div class="row mt-4">

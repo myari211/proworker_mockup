@@ -18,6 +18,7 @@ use App\Education;
 use App\Level;
 use App\Skills;
 use App\user_address;
+use App\Specialization;
 
 class TalentController extends Controller
 {
@@ -29,45 +30,76 @@ class TalentController extends Controller
         return view('talent.dashboard');
     }
 
-    public function profile($id, Request $request){
-
-        $address_count = DB::table('user_address')->where('user_id', $id)->count();
-        $address = DB::table('user_address')->where('user_id', $id)
-                        ->join('provinces', 'user_address.province', '=', 'provinces.id')
-                        ->join('cities', 'user_address.city', '=', 'cities.id')
-                        ->select('*', 'user_address.id as address_id', 'provinces.name as province', 'cities.name as city')
-                        ->get();
-
-        $city = City::pluck('name', 'id');
-        $provinces = Province::pluck('name', 'id');
-
-        $count_profile = DB::table('user_information')->where('user_id', $id)->count();
-        $profile = DB::table('user_information')->where('user_id', $id)->get();
-
-        $user = DB::table('users')->where('id', $id)->count();
-
-        $count_summary = UserSummary::where('user_id', $id)->count();
+    public function profile($id){
+        $summary_count = UserSummary::where('user_id', $id)->count();
         $summary = UserSummary::where('user_id', $id)->get();
-
-        $level = Level::get();
-
-        $skill_count = Skills::where('user_id', $id)->count();
-        $skill = DB::table('skills')->where('user_id', $id)->select('*', 'skills.id as primary')->join('levels', 'skills.level_id', '=', 'levels.id')->get();
-
         $education_count = Education::where('user_id', $id)->count();
         $education = Education::where('user_id', $id)->get();
-
-        $role = RoleJob::get();
-
+        $job_role = RoleJob::get();
         $category = JobCategory::get();
+        return view('talent.profile', compact('summary_count', 'summary', 'education_count', 'education', 'job_role', 'category'));
+    }
 
-        $avatar = DB::table('avatar')->join('users', 'users.id', '=', 'avatar.user_id')->count();
-        $image = DB::table('avatar')->where('user_id', $id)->get();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // public function profile($id, Request $request){
+
+    //     $address_count = DB::table('user_address')->where('user_id', $id)->count();
+    //     $address = DB::table('user_address')->where('user_id', $id)
+    //                     ->join('provinces', 'user_address.province', '=', 'provinces.id')
+    //                     ->join('cities', 'user_address.city', '=', 'cities.id')
+    //                     ->select('*', 'user_address.id as address_id', 'provinces.name as province', 'cities.name as city')
+    //                     ->get();
+
+    //     $city = City::pluck('name', 'id');
+    //     $provinces = Province::pluck('name', 'id');
+
+    //     $count_profile = DB::table('user_information')->where('user_id', $id)->count();
+    //     $profile = DB::table('user_information')->where('user_id', $id)->get();
+
+    //     $user = DB::table('users')->where('id', $id)->count();
+
+    //     $count_summary = UserSummary::where('user_id', $id)->count();
+    //     $summary = UserSummary::where('user_id', $id)->get();
+
+    //     $level = Level::get();
+
+    //     $skill_count = Skills::where('user_id', $id)->count();
+    //     $skill = DB::table('skills')->where('user_id', $id)->select('*', 'skills.id as primary')->join('levels', 'skills.level_id', '=', 'levels.id')->get();
+
+    //     $education_count = Education::where('user_id', $id)->count();
+    //     $education = Education::where('user_id', $id)->get();
+
+    //     $role = RoleJob::get();
+
+    //     $category = JobCategory::get();
+
+    //     $avatar = DB::table('avatar')->join('users', 'users.id', '=', 'avatar.user_id')->count();
+    //     $image = DB::table('avatar')->where('user_id', $id)->get();
 
         
 
-        return view('talent.edit_profile', compact('city', 'address', 'address_count', 'provinces', 'skill', 'skill_count', 'education', 'education_count', 'level', 'image', 'avatar', 'user', 'profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
-    }
+    //     return view('talent.edit_profile', compact('city', 'address', 'address_count', 'provinces', 'skill', 'skill_count', 'education', 'education_count', 'level', 'image', 'avatar', 'user', 'profile', 'count_profile', 'count_summary', 'summary', 'role', 'category'));
+    // }
 
     public function city_store(Request $request){
         $cities = City::where('province_id', $request->input('id'))

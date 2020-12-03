@@ -164,4 +164,17 @@ class ProfileController extends Controller
     }
 
 
+    //new
+
+    public function profile($id,Request $request){
+        DB::table('users')->where('id', $id)->update([
+            'user_phone' => $request->user_phone,
+            'user_birthday' => $request->user_birthday,
+            'user_gender' => $request->user_gender,
+            'user_nationality' => $request->user_nationality
+        ]);
+
+        alert()->success('Your Profile Was Updated');
+        return redirect('/test/profile/'.$id);
+    }
 }

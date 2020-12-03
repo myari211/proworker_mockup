@@ -18,6 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->char('user_first_name', 20)->nullable();
             $table->char('user_last_name', 40)->nullable();
+            $table->string('user_phone')->unique()->nullable();
+            $table->date('user_birthday')->nullable();
+            $table->string('user_nationality')->nullable();
+            $table->enum('user_gender', ['male', 'female'])->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('avatar')->nullable();
             $table->string('password')->nullable();

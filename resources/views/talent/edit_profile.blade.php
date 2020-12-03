@@ -414,7 +414,7 @@
                                                     <div class="card mt-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex justify-content-center">
-                                                                <div class="col-lg-11 d-flex justify-content-between">
+                                                                <div class="col-lg-12 d-flex justify-content-between">
                                                                     {{ $data->skill_name }} - {{ $data->level_name }}
                                                                     <a class="fas fa-times text-muted" style="opacity:0.2" data-toggle="modal" data-target="#delete-skills{{ $data->primary }}"></a>
                                                                 </div>

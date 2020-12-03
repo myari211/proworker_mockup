@@ -4,8 +4,6 @@ $(document).ready(function(){
     $(".preloader").fadeOut();
 })
 
-
-
 $(document).ready(function(){
     $(".add-more").click(function(){
         var html = $(".copy").html();
@@ -28,4 +26,24 @@ function Login(){
 function Redirect(){
     window.location.assign('/signup');
 }
+
+
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+});
+
+$(document).ready(function(){
+    $('.tabs').tabs();
+  });
+
+
+
+  $( document ).ready(function() {
+    new WOW().init();
+  });
+
+$(document).ready(function(){
+    $(".preloader").fadeOut();
+})
+
 

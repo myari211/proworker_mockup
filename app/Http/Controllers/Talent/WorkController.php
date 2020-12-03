@@ -125,7 +125,7 @@ class WorkController extends Controller
         $summaries->save();
 
         alert()->success("Completed", "Job Summaries Was Added");
-        return redirect('/talent/profile/work/'.$id);
+        return redirect('/test/profile/'.$id);
     }
 
     public function edit_summary($id){
