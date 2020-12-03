@@ -410,9 +410,6 @@
         <div class="d-block d-md-none">
             <div class="container">
                 <div class="row d-flex justify-content-center">
-                    <img src="{{ asset('img/Registration.png') }}" style="width:100%">
-                </div>
-                <div class="row d-flex justify-content-center">
                     <h2 style="font-size:40px;" class="text-primary">We Are Proworker</h2>
                 </div>
                 <div class="row d-flex justify-content-center">
