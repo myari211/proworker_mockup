@@ -198,11 +198,25 @@ body{
 .blue-left{
     border-left:10px solid #42a5f5;
 }
+.blue-right{
+    border-right:10px solid #42a5f5;
+}
 
 .yellow-right{
     border-right:10px solid #ffa000;
 }
 
+.yellow-left{
+    border-left:10px solid #ffa000;
+}
+
+.green-left{
+    border-left:10px solid #81c784;
+}
+
+.green-right{
+    border-right:10px solid #81c784;
+}
 
 .yellow-old-font{
     color:#ff6f00;
@@ -222,10 +236,6 @@ body{
 
 .purple-old-font{
     color:#7b1fa2;
-}
-
-.green-left{
-    border-left:10px solid #81c784;
 }
 
 .blue-old-font{
