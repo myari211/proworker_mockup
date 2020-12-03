@@ -35,7 +35,7 @@
                     <div class="col-lg-6">
                         <div class="row">
                             <h2 style="font-size:80px;" class="text-white animated fadeIn">
-                                <b>Cathrine Kntl.</b>
+                                <b>We Are Proworker.</b>
                             </h2>
                         </div>
                         <div class="row">
@@ -413,7 +413,7 @@
                     <img src="{{ asset('img/Registration.png') }}" style="width:100%">
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <h2 style="font-size:40px;" class="text-primary">Cathrine KNTL</h2>
+                    <h2 style="font-size:40px;" class="text-primary">We Are Proworker</h2>
                 </div>
                 <div class="row d-flex justify-content-center">
                     <h5 style="font-size:15px;">Bring Professional Worker Cross Nations.</h5>
