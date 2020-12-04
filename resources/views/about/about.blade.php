@@ -411,27 +411,27 @@
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center wow flipInX">
                             <img src="{{ asset('img/vector_Dashboard.png') }}" style="width:80%; height:250px;">
                         </div>
-                        <div class="row d-flex justify-content-center mt-long">
+                        <div class="row d-flex justify-content-center mt-long wow fadeIn delay-1s">
                             <h2 class="text-primary">We Are Proworker</h4>
                         </div>
                         <div class="row mt-1">
-                            <div class="col-lg-12 d-flex justify-content-center">
+                            <div class="col-lg-12 d-flex justify-content-center wow fadeIn">
                                 <h5>Bring Professional Accros Nations</h5>
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-center mt-5">
+                        <div class="row d-flex justify-content-center mt-5 wow fadeIn">
                             <span class="badge badge-primary p-2">
                                 <i class="fas fa-user mr-2"></i>
                                 Introduction
                             </span>
                         </div>
-                        <div class="row mt-4 d-flex justify-content-center">
+                        <div class="row mt-4 d-flex justify-content-center wow fadeIn">
                             <h4>Who We <span class="text-primary">Are</span></h4>
                         </div>
-                        <div class="row mt-4">
+                        <div class="row mt-4 wow fadeIn">
                             <div class="col-lg-12">
                                 <h6 class="text-center">Proworker began in our CEO Gorga Simanullang office room in 2019, sharing with his son about the experience working aboard in oil & gas industries
                                     for over 15 years. It was his idea combining with his son dream to revolutionize the way professional worker find a job and companies search for professional
@@ -439,12 +439,12 @@
                                 </h6>
                             </div>
                         </div>
-                        <div class="row mt-4">
+                        <div class="row mt-4 wow fadeIn">
                             <div class="col-lg-12">
                                 <h6 class="text-center">With our experience and knowledge, Proworker are able to connects the professional worker with needs in the industry. Thanks to our commitment for giving Professional worker not only jobs, but also the opportunity to become self-employed.</h6>
                             </div>
                         </div>
-                        <div class="row mt-4">
+                        <div class="row mt-4 wow fadeIn">
                             <div class="col-lg-12">
                                 <h6 class="text-center">Every product of services we offer is designed to help our customer to hire and also the candidates to get a better, faster, and simpler job.</h6>
                             </div>
@@ -453,36 +453,36 @@
                 </div>
                 <div class="row mt-4 bg-primary d-flex justify-content-center align-items-center" style="height:270px;">
                     <div class="col-lg-12">
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center wow fadeInLeft">
                             <i class="fas fa-quote-right yellow-font" style="font-size:80px;"></i>
                         </div>
-                        <div class="row d-flex justify-content-center mt-2">
+                        <div class="row d-flex justify-content-center mt-2 wow fadeInLeft">
                             <span class="badge yellow-bg p-2">
                                 <i class="fas fa-bookmark mr-2"></i>
                                 Our Motto
                             </span>
                         </div>
-                        <div class="row mt-4">
+                        <div class="row mt-4 wow fadeInLeft">
                             <div class="col-lg-12">
-                                <h4 class="text-center text-white"><i>Lorem Ipsum Sit Dolor Amte, Pre Custios Anas Urbansiak</i></h4>
+                                <h4 class="text-center text-white"><i>Let's Make It Perfect</i></h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12 d-flex justify-content-center">
-                        <h4>Our Missi<span class="text-primary">ons</span></h4>
+                        <h4 class="wow flipInX">Our Missi<span class="text-primary">ons</span></h4>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center wow flipInX">
                     <span class="badge badge-primary p-2">
                         <i class="fas fa-briefcase mr-2"></i>
                         Missions
                     </span>
                 </div>
-                <div class="row mt-4">
+                <div class="row mt-4 wow">
                     <div class="col-lg-12">
-                        <div class="card blue-right blue-left">
+                        <div class="card blue-right blue-left wow flipInX">
                             <div class="card-body">
                                 <div class="col-lg-12">
                                     <div class="row d-flex justify-content-center">
@@ -498,7 +498,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card yellow-right yellow-left">
+                        <div class="card yellow-right yellow-left wow flipInX">
                             <div class="card-body">
                                 <div class="col-lg-12">
                                     <div class="row d-flex justify-content-center">
@@ -514,7 +514,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card green-right green-left">
+                        <div class="card green-right green-left wow flipInX">
                             <div class="card-body">
                                 <div class="col-lg-12">
                                     <div class="row d-flex justify-content-center">
@@ -528,18 +528,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5 d-flex justify-content-center">
+                <div class="row mt-5 d-flex justify-content-center wow fadeInLeft">
                     <h4>Our Servi<span class="text-primary">ces</span></h4>
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <span class="badge badge-primary p-2">
+                    <span class="badge badge-primary p-2 wow fadeInLeft">
                         <i class="fas fa-globe-asia"></i>
                         Services
                     </span>
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <i class="fas fa-bolt text-primary" style="font-size:80px;"></i>
@@ -553,7 +553,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <i class="fas fa-th yellow-font" style="font-size:80px;"></i>
@@ -567,7 +567,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <i class="fas fa-network-wired green-font" style="font-size:80px;"></i>
@@ -581,7 +581,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <i class="fas fa-industry purple-font" style="font-size:80px;"></i>
@@ -595,7 +595,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <i class="fas fa-fire-extinguisher red-font" style="font-size:80px;"></i>
@@ -609,7 +609,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <i class="fab fa-stumbleupon teal-font" style="font-size:80px;"></i>
@@ -623,7 +623,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center">
                                     <i class="fas fa-broadcast-tower lime-font" style="font-size:80px;"></i>
@@ -635,10 +635,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5 d-flex justify-content-center">
+                <div class="row mt-5 d-flex justify-content-center wow bounceInLeft">
                     <h4>Meets Our Te<span class="text-primary">ams !</span></h4>
                 </div>
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center wow bounceInRight">
                     <span class="badge badge-primary p-2">
                         <i class="fas fa-user mr-2"></i>
                         Teams
@@ -646,7 +646,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow flipInX">
                             <div class="card-body p-0">
                                 <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
                             </div>
@@ -663,7 +663,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow bounceInLeft">
                             <div class="card-body p-0">
                                 <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
                             </div>
@@ -680,7 +680,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeInLeft">
                             <div class="card-body p-0">
                                 <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
                             </div>
@@ -697,7 +697,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow BounceInRight">
                             <div class="card-body p-0">
                                 <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
                             </div>
@@ -714,7 +714,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow flipInY">
                             <div class="card-body p-0">
                                 <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
                             </div>
@@ -731,7 +731,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <div class="card wow fadeIn">
                             <div class="card-body p-0">
                                 <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
                             </div>
