@@ -412,7 +412,7 @@
                 <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="row d-flex justify-content-center">
-                            <img src="{{ asset('img/vector_Dashboard.png') }}" style="width:80%; height:100%;">
+                            <img src="{{ asset('img/vector_Dashboard.png') }}" style="width:80%; height:250px;">
                         </div>
                         <div class="row d-flex justify-content-center mt-long">
                             <h2 class="text-primary">We Are Proworker</h4>
