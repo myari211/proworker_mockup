@@ -409,22 +409,24 @@
 
         <div class="d-block d-md-none">
             <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <h2 style="font-size:40px;" class="text-primary">We Are Proworker</h2>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <h5 style="font-size:15px;">Bring Professional Worker Cross Nations.</h5>
-                </div>
                 <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="row d-flex justify-content-center">
+                            <img src="{{ asset('img/vector_Dashboard.png') }}" style="width:80%; height:100%;">
+                        </div>
+                        <div class="row d-flex justify-content-center mt-long">
+                            <h2 class="text-primary">We Are Proworker</h4>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-lg-12 d-flex justify-content-center">
+                                <h5>Bring Professional Accros Nations</h5>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center mt-5">
                             <span class="badge badge-primary p-2">
                                 <i class="fas fa-user mr-2"></i>
                                 Introduction
                             </span>
-                        </div>
-                        <div class="row  d-flex justify-content-center">
-                            <img src="{{ asset('img/vector_Dashboard.png') }}" style="width:80%">
                         </div>
                         <div class="row mt-4 d-flex justify-content-center">
                             <h4>Who We <span class="text-primary">Are</span></h4>
@@ -633,7 +635,142 @@
                         </div>
                     </div>
                 </div>
+                <div class="row mt-5 d-flex justify-content-center">
+                    <h4>Meets Our Te<span class="text-primary">ams !</span></h4>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <span class="badge badge-primary p-2">
+                        <i class="fas fa-user mr-2"></i>
+                        Teams
+                    </h5>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
+                            </div>
+                            <div class="card-footer blue-young-bg">
+                                <div class="row d-flex justify-content-center">
+                                    <h5 class="blue-old-font"><b>Gorga Simanullang</b></h5>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <small class="text-white"><i>Chief Excecutive Officer</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
+                            </div>
+                            <div class="card-footer yellow-young-bg">
+                                <div class="row d-flex justify-content-center">
+                                    <h5 class="yellow-old-font"><b>David Pramudya Agape</b></h5>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <small class="text-white"><i>Chief Technology Officer</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
+                            </div>
+                            <div class="card-footer teal-young-bg">
+                                <div class="row d-flex justify-content-center">
+                                    <h5 class="teal-old-font"><b>Arief Kurniawan</b></h5>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <small class="text-white"><i>Lead & DB Engineer</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
+                            </div>
+                            <div class="card-footer red-young-bg">
+                                <div class="row d-flex justify-content-center">
+                                    <h5 class="red-old-font"><b>Ari Pratama Putra</b></h5>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <small class="text-white"><i>Fullstack Programmer</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
+                            </div>
+                            <div class="card-footer purple-young-bg">
+                                <div class="row d-flex justify-content-center">
+                                    <h5 class="purple-old-font"><b>Arief Kurniawan</b></h5>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <small class="text-white"><i>QA & Admin Resources</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <img src="{{ asset('img/profile1.jpeg') }}" style="width:100%; height:250px;">
+                            </div>
+                            <div class="card-footer green-young-bg">
+                                <div class="row d-flex justify-content-center">
+                                    <h5 class="green-old-font"><b>Ivan Irianto</b></h5>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <small class="text-white"><i>Chief Marketing Officer</i></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <footer class="page-footer font-small blue pt-4 mt-5 wow flipInX" style="width:100%">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <img src="{{ asset('img/logopro2.png') }}">
+                    </div>
+                    <div class="row mt-4 d-flex justify-content-center">
+                        <h4>Find Us</h4>
+                    </div>
+                    <div class="row mt-2 d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary btn-md">
+                            <i class="fa fa-facebook"></i>
+                        </button>
+                        <button type="button" class="btn blue-young-bg btn-md">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                        <button type="button" class="btn purple-young-bg btn-md">
+                            <i class="fa fa-instagram"></i>
+                        </button>
+                    </div>
+                    <div class="row mt-5 d-flex justify-content-center">
+                        <p>2020 &copy; Proworker | All Rights Reserved</p>
+                    </div>
+                </div>
+            </footer>
         </div>
 
 
